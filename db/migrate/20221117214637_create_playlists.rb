@@ -5,8 +5,7 @@ class CreatePlaylists < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :genre
 
-      # t.has_many :songs
-      # t.belongs_to :user, null:false
+      t.belongs_to :user, null:false
 
       t.timestamps
     end
