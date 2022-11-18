@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2022_11_17_214653) do
     t.string "title", null: false
     t.string "description"
     t.string "genre"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
