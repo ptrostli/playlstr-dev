@@ -83,3 +83,8 @@ production:
   database: playlstr-dev_production
   username: playlstr-dev
   password: <%= ENV['PLAYLSTR-DEV_DATABASE_PASSWORD'] %>
+
+### FOR DEPLOYMENT - REPLACE LINES 81-85
+# production:
+#   <<: *default
+#   url: <%= ENV['DATABASE_URL'] %>
