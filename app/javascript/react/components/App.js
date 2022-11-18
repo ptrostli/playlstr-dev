@@ -1,7 +1,18 @@
 import React from 'react'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import PlaylistsIndexContainer from './PlaylistsIndexContainer'
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+const App = (props) => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={PlaylistsIndexContainer} />
+          <Route exact path="/playlists" component={PlaylistsIndexContainer} />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  )
 }
 
 export default App
