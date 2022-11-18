@@ -37,7 +37,7 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 
-#### FOR DEPLOYMENT
+#### FOR DEPLOYMENT - REPLACE ABOVE CODE
 
 # max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 # min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
