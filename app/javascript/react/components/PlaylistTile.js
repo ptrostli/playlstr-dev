@@ -2,12 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PlaylistTile = (props) => {
+  debugger
+  const {playlist} = props
 
   return (
     <div className="playlist-tile">
-      {/* <Link to={`/playlists/${playlist.id}`}> */}
-        <h4>{props.playlist.title}</h4>
-      {/* </Link> */}
+      <Link to={`/playlists/${playlist.id}`}>
+        <h4>{playlist.title}</h4>
+      </Link>
+        <p>{playlist.description}</p>
     </div>
   )
 }
