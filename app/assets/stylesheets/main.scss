@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@400;700&display=swap');
+
 * {
   margin: 0;
   color: red;
 }
 
+.top-bar {
+  border-bottom: 2px solid rgb(57, 57, 57);
+}
+
+.top-bar, .top-bar-section li {
+  background-color: pink;
+}
+
 .title {
   color: red;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
 }
