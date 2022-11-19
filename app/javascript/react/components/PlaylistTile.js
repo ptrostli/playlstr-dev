@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// TO COMPLETE --> Display associated username.
 const PlaylistTile = (props) => {
-  // debugger
   return (
     <div className="playlist-tile">
-      {/* <Link to={`/playlists/${playlist.id}`}> */}
+      <Link to={`/playlists/${playlist.id}`}>
         <h4>{props.playlist.title}</h4>
+      </Link>
         <p>{props.playlist.description}</p>
-        
-      {/* </Link> */}
     </div>
   )
 }

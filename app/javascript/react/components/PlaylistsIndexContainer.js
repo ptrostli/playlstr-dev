@@ -35,7 +35,7 @@ const PlaylistsIndexContainer = (props) => {
       />
     )
   })
-    // debugger
+
   return(
     <div>
       {playlistsList}
