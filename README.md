@@ -1,9 +1,13 @@
-# README
+# Sup 
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Instead. Its gonna be a reminder to myself of shit to do.
+
+* DO better
+* profit.
+<!-- Things you may want to cover:
 
 * Ruby version
 
@@ -21,4 +25,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
