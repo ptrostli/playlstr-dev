@@ -2,11 +2,11 @@
 
 * {
   margin: 0;
-  color: red;
 }
 
 .top-bar {
-  border-bottom: 2px solid rgb(57, 57, 57);
+  border-bottom: 2px dotted rgb(57, 57, 57);
+  padding-bottom: 2px;
 }
 
 .top-bar, .top-bar-section li {
@@ -17,4 +17,29 @@
   color: red;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
+}
+
+.playlists-index {
+  border: 1px solid purple;
+  margin: 1rem;
+}
+
+.playlist-show-container {
+  border: 1px solid blue;
+  margin: 1rem;
+}
+
+.playlist-tile {
+  border: 1px solid orange;
+  margin: 1rem;
+}
+
+.songs-container {
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+.song-tile {
+  border: 2px solid green;
+  margin: 1rem;
 }

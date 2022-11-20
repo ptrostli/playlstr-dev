@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SongsIndexContainer from "./SongsIndexContainer";
 
 const PlaylistShowContainer = (props) => {
   const [playlist, setPlaylist] = useState({
@@ -27,15 +28,18 @@ const PlaylistShowContainer = (props) => {
   },[])
 
   return (
-    <div>
-      <h1 className="playlist-tile">{playlist.title}</h1>
-      <p className="playlist-description">{playlist.description}</p>
-      <p>CREATED: {playlist.created_at}</p>
-      <p>UPDATED: {playlist.updated_at}</p>
-      {/* Username */}
-      <ul className="playlist-songs">
-        {/* SongsIndexContainer */}
-      </ul>
+    <div className="playlist-show-container">
+      <h1>PlaylistShowContainer</h1>
+      {/* <h3>{playlist.title}</h3>
+      <div className="playlist-information">
+        <h5 className="playlist-description">{playlist.description}</h5>
+        <p>CREATED: {playlist.created_at}</p>
+        <p>UPDATED: {playlist.updated_at}</p>
+        <p>USER: {playlist.user_id} *fix later to get username* </p>
+      </div> */}
+      <SongsIndexContainer 
+        playlist={playlist}
+      />
     </div>
   )
 }

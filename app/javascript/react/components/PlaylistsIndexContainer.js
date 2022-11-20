@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PlaylistTile from "./PlaylistTile";
+// import SongsIndexContainer from "./SongsIndexContainer";
 
 const PlaylistsIndexContainer = (props) => {
   const [playlists, setPlaylists] = useState([])
@@ -37,7 +38,8 @@ const PlaylistsIndexContainer = (props) => {
   })
 
   return(
-    <div>
+    <div className="playlists-index">
+      <h1>PlaylistsIndexContainer</h1>
       {playlistsList}
     </div>
   )
