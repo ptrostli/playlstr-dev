@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import PlaylistsIndexContainer from './PlaylistsIndexContainer'
 import PlaylistShowContainer from './PlaylistShowContainer'
+import NewPlaylistFormContainer from './NewPlaylistFormContainer'
 // import UserShowContainer from './UserShowContainer'
 
 const App = (props) => {
@@ -11,6 +12,7 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={PlaylistsIndexContainer} />
           <Route exact path="/playlists" component={PlaylistsIndexContainer} />
+          <Route exact path="/playlists/new" component={NewPlaylistFormContainer} />
           <Route exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
           {/* <Route exact path="/users/:userId" component={UserShowContainer} /> */}
         </Switch>
