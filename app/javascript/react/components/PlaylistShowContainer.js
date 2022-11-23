@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SongsIndexContainer from "./SongsIndexContainer";
+import { Link } from 'react-router-dom'
 
 const PlaylistShowContainer = (props) => {
   const [playlist, setPlaylist] = useState({
@@ -30,16 +31,17 @@ const PlaylistShowContainer = (props) => {
   return (
     <div className="playlist-show-container">
       <h1>PlaylistShowContainer</h1>
-      {/* <h3>{playlist.title}</h3>
+      <h3>{playlist.title}</h3>
       <div className="playlist-information">
-        <h5 className="playlist-description">{playlist.description}</h5>
+        {/* <h5 className="playlist-description">{playlist.description}</h5>
         <p>CREATED: {playlist.created_at}</p>
         <p>UPDATED: {playlist.updated_at}</p>
-        <p>USER: {playlist.user_id} *fix later to get username* </p>
-      </div> */}
+        <p>USER: {playlist.user_id} *fix later to get username* </p> */}
+      </div>
       <SongsIndexContainer 
         playlist={playlist}
       />
+      <Link to="/playlists">Return Home</Link>
     </div>
   )
 }
