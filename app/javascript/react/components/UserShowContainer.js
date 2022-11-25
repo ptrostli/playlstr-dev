@@ -32,9 +32,10 @@ const UserShowContainer = (props) => {
 
   return (
     <div>
-      <h2>{user.username}</h2>
+      <h3>UserShowContainer</h3>
+      {/* <h2>{user.username}</h2> */}
       {/* <h4>Joined {joinDate}</h4> */}
-      <h4>Location: {user.zip}</h4>
+      {/* <h4>Location: {user.zip}</h4> */}
     </div>
   )
 }

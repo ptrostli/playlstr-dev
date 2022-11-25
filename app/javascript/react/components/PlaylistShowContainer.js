@@ -41,7 +41,9 @@ const PlaylistShowContainer = (props) => {
       <SongsIndexContainer 
         playlist={playlist}
       />
-      <Link to="/playlists">Return Home</Link>
+      <Link to="/">Return Home</Link>|| 
+      <Link to="/playlists">All Playlists</Link>||
+      <Link to='/playlists/new'>Create Playlist</Link>
     </div>
   )
 }

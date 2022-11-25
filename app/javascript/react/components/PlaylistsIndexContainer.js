@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 const PlaylistsIndexContainer = (props) => {
   const [playlists, setPlaylists] = useState([])
-  // Following line is for the future
-  // const [featuredPlaylist, setFeaturedPlaylist] = useState({})
 
   const getPlaylists = async() => {
     try {
@@ -18,8 +16,6 @@ const PlaylistsIndexContainer = (props) => {
       }
       const fetchedPlaylists = await response.json()
       setPlaylists(fetchedPlaylists)
-      // Following line is for the future
-      // setFeaturedPlaylist(fetchedPlaylists.playlists[Math.floor(Math.random() * fetchedPlaylists.playlists.length)])
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
@@ -42,6 +38,7 @@ const PlaylistsIndexContainer = (props) => {
     <div className="playlists-index">
       <h1>PlaylistsIndexContainer</h1>
       {playlistsList}
+      <Link to='/'>Return Home</Link>||
       <Link to='/playlists/new'>Create Playlist</Link>
     </div>
   )
