@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import SongsIndexContainer from "./SongsIndexContainer";
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 const PlaylistShowContainer = (props) => {
-  const [playlist, setPlaylist] = useState({
-    songs: []
-  })
+  const [playlist, setPlaylist] = useState({songs: []})
+  const [redirect, setRedirect] = useState(false)
   // const [errors, setErrors] = useState("")
 
   const getPlaylist = async() => {
+    const playlistId = props.match.params.playlistId
     try {
-      const playlistId = props.match.params.playlistId
       const response = await fetch(`/api/v1/playlists/${playlistId}`)
       if (!response.ok) {
         const errorMessage = `${response.status}  (${response.statusText})`
@@ -22,6 +21,34 @@ const PlaylistShowContainer = (props) => {
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
+  }
+  
+  const deletePlaylist = async() => {
+    const playlistId = props.match.params.playlistId
+    try {
+      const response = await fetch(`/api/v1/playlists/${playlistId}`, {
+        credentials: "same-origin",
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(playlistId) 
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} - (${response.statusText})`
+        const error = new Error(`${errorMessage}`)
+        throw(error)
+      } else {
+      window.location.reload()
+      }
+    } catch(err) {
+      console.error(`ERROR: ${err.message}`)
+    }
+  }
+
+  const handleDeletePlaylist = () => {
+    deletePlaylist()
   }
 
   useEffect(() => {
@@ -37,6 +64,9 @@ const PlaylistShowContainer = (props) => {
         <p>CREATED: {playlist.created_at}</p>
         <p>UPDATED: {playlist.updated_at}</p>
         <p>USER: {playlist.user_id} *fix later to get username* </p> */}
+        <div className="edit-delete-buttons">
+          <input type="button" value="Delete Playlist" onClick={handleDeletePlaylist} />
+        </div>
       </div>
       <SongsIndexContainer 
         playlist={playlist}

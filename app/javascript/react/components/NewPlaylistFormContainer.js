@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 const NewPlaylistFormContainer = (props) => {
   // const [errors, setErrors] = useState({})
-  const [redirect, setRedirect] = useState(null)
+  const [redirect, setRedirect] = useState(false)
   const [newPlaylist, setNewPlaylist] = useState({
     title: '',
     description: '',
@@ -69,9 +69,9 @@ const NewPlaylistFormContainer = (props) => {
     }
   }
 
-  if (redirect !== null) {
-    return <Redirect to={`/playlists/${redirect}`}/>
-  }
+  // if (redirect) {
+  //   return <Redirect push to={`/playlists/${redirect}`}/>
+  // }
 
   return (
     <form className="new-playlist-form" onSubmit={createNewPlaylist}>
