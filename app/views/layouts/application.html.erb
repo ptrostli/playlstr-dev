@@ -9,20 +9,8 @@
 <body>
   
   <nav class="top-bar">
-    <h1><a class="title" href="/">Playlstr</a></h1>
-    <%# <a href="/" class="logo"><%= image_tag("playlstr-logo.png", alt: "Playlstr") %></a> %>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li><a href="/users/<%= current_user.id %>">View My Profile</a></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
+    
+    <a href="/" className="top-bar-logo"><%= image_tag("playlstr-logo.png", alt: "Playlstr")%></a> 
   </nav>
 
   <%- flash.each do |key, value| -%>
@@ -43,5 +31,18 @@
   <%= javascript_pack_tag 'application' %>
   
   <%= yield :extra_footer %>
+
+
+  <section class="top-bar-section">
+      <ul class="user-accounts right">
+        <%- if current_user -%>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><a href="/users/<%= current_user.id %>">View My Profile</a></li>
+        <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
+      </ul>
+    </section>
 </body>
 </html>

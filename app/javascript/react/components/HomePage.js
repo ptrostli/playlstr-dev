@@ -29,12 +29,12 @@ const HomePage = (props) => {
   return (
     <div className="home-page">
       <h1>HomePage</h1>
+      <LoginButtonsTile />
+      <Link to="/playlists">All Playlists!</Link>
       {/* <h2>F E A T U R E D</h2> */}
       <FeaturedPlaylistTile 
         featured={featuredPlaylist}
       />
-      <LoginButtonsTile />
-      <Link to="/playlists">All Playlists!</Link>
     </div>
   )
 }

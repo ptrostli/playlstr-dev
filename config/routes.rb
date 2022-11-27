@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/playlists', to: "static_pages#index"
-  get '/playlists/new', to: "static_pages#index"
+  get '/playlists/new', to: "static_pages#authenticated"
   get '/playlists/:id', to: "static_pages#index"
   get '/users/:id', to: "static_pages#index"
 

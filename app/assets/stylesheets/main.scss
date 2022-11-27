@@ -4,13 +4,24 @@
   margin: 0;
 }
 
+
 .top-bar {
-  border-bottom: 2px dotted rgb(57, 57, 57);
-  padding-bottom: 2px;
+  background-color: white;
+  height: 100px;
+  margin-top: 25px;
+  width: 100%;
 }
 
-.top-bar, .top-bar-section li {
-  background-color: pink;
+.image_tag {
+  height: 9px;
+}
+
+ul.user-accounts {
+  list-style-type: none;
+  background-color: white;
+  margin: auto;
+  text-align: center;
+  width: 400px;
 }
 
 .title {
@@ -46,7 +57,11 @@
 
 .featured-playlist-tile {
   border: 1px solid gold;
-  margin: 1rem; 
+  margin: auto;
+  width: 500px; 
+  height: 500px;
+  text-align: center;
+  
 }
 
 .login-options {
@@ -54,7 +69,10 @@
   margin: 1rem;
 }
 
+
 .home-page {
   border: 1px solid teal;
-  margin: 1rem;
+  margin: auto;
+  text-align: center;
+  width: 1500px;
 }
