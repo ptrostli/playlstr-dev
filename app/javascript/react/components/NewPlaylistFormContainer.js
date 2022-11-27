@@ -60,18 +60,19 @@ const NewPlaylistFormContainer = (props) => {
         throw(error)
       }
       const fetchedPlaylist = await response.json()
-      if (fetchedPlaylist.playlist) {
+      if (fetchedPlaylist.id) {
         console.log('Playlist created!')
-        setRedirect(fetchedPlaylist.playlist.id)
+        setRedirect(true)
       }
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
   }
 
-  // if (redirect) {
-  //   return <Redirect push to={`/playlists/${redirect}`}/>
-  // }
+  if (redirect === true) {
+    return <Redirect to ="/playlists"/>
+  }
+
 
   return (
     <form className="new-playlist-form" onSubmit={createNewPlaylist}>

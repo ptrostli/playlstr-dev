@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :zip, :created_at
+  attributes :id, :username, :created_at, :updated_at
 
   has_many :playlists
 end

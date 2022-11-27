@@ -1,13 +1,15 @@
 user_1 = User.create(
   username: "itsyahboi",
   email: "email@email.com",
-  password: "password"
+  password: "password",
+  role: "member"
 )
 
 user_2 = User.create(
   username: "phil",
   email: "phil@email.com",
   password: "password"
+  role: "admin"
 )
 
 playlist_1 = Playlist.find_or_create_by(
