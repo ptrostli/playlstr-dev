@@ -5,8 +5,10 @@
 }
 
 .home-page {
+  height:80vh;
   background-color: whitesmoke;
 }
+
 .top-bar {
   background-color: white;
   height: 100px;
@@ -32,6 +34,15 @@ ul.user-accounts {
   font-weight: 700;
 }
 
+.featured-playlist-tile {
+  min-height:65vh;
+  border: 1px solid gold;
+  margin: auto;
+  width: 80%; 
+  height: 50%;
+  text-align: center;
+}
+
 .playlists-index {
   border: 1px solid purple;
   margin: 1rem;
@@ -55,14 +66,6 @@ ul.user-accounts {
 .song-tile {
   border: 1px solid green;
   margin: 1rem;
-}
-
-.featured-playlist-tile {
-  border: 1px solid gold;
-  margin: auto;
-  width: 80%; 
-  height: 50%;
-  text-align: center;
 }
 
 .login-options {

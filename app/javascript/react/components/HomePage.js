@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import FeaturedPlaylistTile from "./FeaturedPlaylistTile";
-import LoginButtonsTile from "./LoginButtonsTile";
 import { Link } from "react-router-dom";
+import FeaturedPlaylistTile from "./FeaturedPlaylistTile";
+// import LoginButtonsTile from "./LoginButtonsTile";
 // FUTURE PLAN: Create a component that will allow user to sign up and sign in on the home page, without link to.
 
 const HomePage = (props) => {
@@ -29,7 +29,6 @@ const HomePage = (props) => {
   return (
     <div className="home-page">
       <h1>HomePage</h1>
-      <LoginButtonsTile />
       <Link to="/playlists">All Playlists!</Link>
       {/* <h2>F E A T U R E D</h2> */}
       <FeaturedPlaylistTile 
