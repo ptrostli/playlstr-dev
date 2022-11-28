@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
 const SpotifySearchTile = (props) => {
-  const CLIENT_ID = "a9b02aefeb5f4fba8796911337e2713b"
-  const REDIRECT_URI = "http://localhost:3000"
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-  const RESPONSE_TYPE = "token"
 
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState("")
