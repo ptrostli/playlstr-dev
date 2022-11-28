@@ -8,7 +8,7 @@ user_1 = User.create(
 user_2 = User.create(
   username: "phil",
   email: "phil@email.com",
-  password: "password"
+  password: "password",
   role: "admin"
 )
 

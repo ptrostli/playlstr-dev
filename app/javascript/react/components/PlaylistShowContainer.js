@@ -26,7 +26,7 @@ const PlaylistShowContainer = (props) => {
   // cant delete because its on the same page?
   const deletePlaylist = async() => {
     const playlistId = props.match.params.playlistId
-    setRedirect(true)
+    
     try {
       const response = await fetch(`/api/v1/playlists/${playlistId}`, {
         credentials: "same-origin",
@@ -42,18 +42,19 @@ const PlaylistShowContainer = (props) => {
         const error = new Error(`${errorMessage}`)
         throw(error)
       }
+      setRedirect(true)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
   }
 
-  if (redirect === true) {
-    return <Redirect to ="/playlists"/>
-  }
-
   useEffect(() => {
     getPlaylist()
   },[])
+
+  if (redirect === true) {
+    return <Redirect to ="/playlists"/>
+  }
 
   return (
     <div className="playlist-show-container">
