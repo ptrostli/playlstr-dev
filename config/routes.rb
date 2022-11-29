@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/playlists/new', to: "static_pages#authenticated"
   get '/playlists/:id', to: "static_pages#index"
   get '/users/:id', to: "static_pages#index"
+  get '/auth/spotify/callback', to: 'users#spotify'
+
 
   namespace :api do
     namespace :v1 do

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playlstr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag 'temp', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="top-bar">
+    <a href="/"><%= image_tag("lstr-logo.png", alt: "Playlstr", class: "top-bar-logo")%></a> 
+  </nav>
+
+  <%= yield %>
+
+  <%= javascript_include_tag 'temp' %>
+  
+  <%- if Rails.env.development? || Rails.env.test? -%> 
+    <%= javascript_tag do %>
+      window.railsEnv = '<%= Rails.env %>'
+    <%- end -%>
+  <%- end -%>
+  <%= javascript_pack_tag 'temp' %>
+  
+  <%= yield :extra_footer %>
+
+</body>
+</html>
