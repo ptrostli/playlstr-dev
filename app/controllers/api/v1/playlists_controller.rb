@@ -42,7 +42,7 @@ class Api::V1::PlaylistsController < ApiController
 
   private
   def playlist_params
-    params.require(:playlist).permit(:title, :description, :genre)
+    params.require(:playlist).permit(:title, :description)
   end
 
   def authorize_admin

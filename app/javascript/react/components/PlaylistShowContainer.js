@@ -23,7 +23,6 @@ const PlaylistShowContainer = (props) => {
     }
   }
 
-  // cant delete because its on the same page?
   const deletePlaylist = async() => {
     const playlistId = props.match.params.playlistId
     
@@ -58,23 +57,27 @@ const PlaylistShowContainer = (props) => {
 
   return (
     <div className="playlist-show-container">
-      <h1>PlaylistShowContainer</h1>
-      <h3>{playlist.title}</h3>
+      <h1>{playlist.title}</h1>
       <div className="playlist-information">
-        <h5 className="playlist-description">{playlist.description}</h5>
-        <p>CREATED: {playlist.created_at}</p>
-        <p>UPDATED: {playlist.updated_at}</p>
-        {/* <p>USER: {playlist.user_id} *fix later to get username* </p> */}
+        <h5>{playlist.description}</h5>
+        <div className="playlist-timestamps">
+          <p>CREATED: {playlist.created_at}</p>
+          <p>UPDATED: {playlist.updated_at}</p>
+        </div>
+        <p>USER: {playlist.user_id} *fix later to get username* </p>
         <div className="edit-delete-buttons">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
+          <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" />
         </div>
       </div>
       <SongsIndexContainer 
         playlist={playlist}
       />
-      <Link to="/">Return Home</Link>|| 
-      <Link to="/playlists">All Playlists</Link>||
-      <Link to='/playlists/new'>Create Playlist</Link>
+      <div className="links">
+        <Link to="/">Return Home</Link>|| 
+        <Link to="/playlists">All Playlists</Link>||
+        <Link to='/playlists/new'>Create Playlist</Link>
+      </div>
     </div>
   )
 }
