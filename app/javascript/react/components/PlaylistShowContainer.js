@@ -7,8 +7,9 @@ const PlaylistShowContainer = (props) => {
   const [redirect, setRedirect] = useState(false)
   // const [errors, setErrors] = useState("")
   
+  const playlistId = props.match.params.playlistId
+
   const getPlaylist = async() => {
-    const playlistId = props.match.params.playlistId
     try {
       const response = await fetch(`/api/v1/playlists/${playlistId}`)
       if (!response.ok) {
@@ -23,9 +24,27 @@ const PlaylistShowContainer = (props) => {
     }
   }
 
+  // const editPlaylist = async() => {
+  //   try {
+  //     const response = await fetch(`/api/v1/playlists/${playlistId}`, {
+  //       credentials: "same-origin",
+  //       method: "PATCH",
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json'
+  //       }
+  //     })
+  //     if (!response.ok) {
+  //       const errorMessage = `${response.status} - (${response.statusText})`
+  //       const error = new Error(`${errorMessage}`)
+  //       throw(error)
+  //     }
+  //   } catch(err) {
+  //     console.error(`ERROR: ${err.message}`)
+  //   }
+  // }
+
   const deletePlaylist = async() => {
-    const playlistId = props.match.params.playlistId
-    
     try {
       const response = await fetch(`/api/v1/playlists/${playlistId}`, {
         credentials: "same-origin",
@@ -67,7 +86,7 @@ const PlaylistShowContainer = (props) => {
         <p>USER: {playlist.user_id} *fix later to get username* </p>
         <div className="edit-delete-buttons">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
-          <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" />
+          <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" onClick={editPlaylist} />
         </div>
       </div>
       <SongsIndexContainer 

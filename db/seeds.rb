@@ -1,3 +1,5 @@
+User.destroy_all
+
 user_1 = User.create(
   username: "demo",
   email: "demo@email.com",
