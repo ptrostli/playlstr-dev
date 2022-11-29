@@ -1,5 +1,6 @@
 import React from "react";
 import SongTile from "./SongTile";
+import SearchBar from "./SearchBar";
 
 const SongsIndexContainer = (props) => {
   const songsList = props.playlist.songs.map((song) => {
@@ -15,6 +16,10 @@ const SongsIndexContainer = (props) => {
     <div className="songs-container">
       <h5>SongsIndexContainer</h5>
       {songsList}
+
+      <SearchBar
+        
+      />
     </div>
   )
 }

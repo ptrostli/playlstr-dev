@@ -10,6 +10,8 @@ class Api::V1::PlaylistsController < ApiController
   def show 
     playlist = Playlist.find(params[:id])
     render json: Playlist.find(params[:id])
+    # tracks = RSpotify::Track.search('Know') 
+    # must determine how to setup a controller for this
   end
 
   def new
@@ -43,9 +45,15 @@ class Api::V1::PlaylistsController < ApiController
     params.require(:playlist).permit(:title, :description, :genre)
   end
 
+  def authorize_admin
+    if !user_signed_in? || !(current_user.role == "admin")
+      render json: {error: ["Only admins have access."]}
+    end
+  end
+
   def authorize_user
     if !user_signed_in? || !(current_user.role == "member") || !(current_user.role == "admin")
-      render json: {error: ["Only admins have access to this feature"]}
+      render json: {error: ["Only registered users have access to this feature"]}
     end
   end
 
