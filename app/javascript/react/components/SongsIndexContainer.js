@@ -1,6 +1,6 @@
 import React from "react";
 import SongTile from "./SongTile";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 
 const SongsIndexContainer = (props) => {
   const songsList = props.playlist.songs.map((song) => {
