@@ -4,16 +4,29 @@
   margin: 0;
 }
 
+.temp-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 80vh;
+}
+
+.home-page {
+  height:80vh;
+  background-color: whitesmoke;
+}
 
 .top-bar {
   background-color: white;
   height: 100px;
-  margin-top: 25px;
-  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
-.image_tag {
-  height: 9px;
+.top-bar-logo {
+  display: block;
+  max-width: 30%;
 }
 
 ul.user-accounts {
@@ -21,13 +34,21 @@ ul.user-accounts {
   background-color: white;
   margin: auto;
   text-align: center;
-  width: 400px;
 }
 
 .title {
   color: red;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
+}
+
+.featured-playlist-tile {
+  min-height:65vh;
+  border: 1px solid gold;
+  margin: auto;
+  width: 80%; 
+  height: 50%;
+  text-align: center;
 }
 
 .playlists-index {
@@ -55,24 +76,13 @@ ul.user-accounts {
   margin: 1rem;
 }
 
-.featured-playlist-tile {
-  border: 1px solid gold;
-  margin: auto;
-  width: 500px; 
-  height: 500px;
-  text-align: center;
-  
-}
-
 .login-options {
   border: 1px solid pink;
   margin: 1rem;
 }
 
-
 .home-page {
   border: 1px solid teal;
   margin: auto;
   text-align: center;
-  width: 1500px;
 }
