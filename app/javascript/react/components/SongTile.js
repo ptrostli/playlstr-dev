@@ -6,8 +6,7 @@ const SongTile = (props) => {
 
   return (
     <div className="song-tile">
-      <h6>SongTile</h6>
-      <p>{song.name} - {song.artist} / {song.album} || {song.length} ::: RELEASED: {song.release_date}</p>
+      <h6>{song.name} - {song.artist} || {song.length}</h6>
     </div>
   )
 }

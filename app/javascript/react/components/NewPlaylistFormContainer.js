@@ -6,8 +6,7 @@ const NewPlaylistFormContainer = (props) => {
   const [redirect, setRedirect] = useState(false)
   const [newPlaylist, setNewPlaylist] = useState({
     title: '',
-    description: '',
-    genre: ''
+    description: ''
   })
   
   // FORM VALIDATION
@@ -26,14 +25,14 @@ const NewPlaylistFormContainer = (props) => {
   //   setErrors(errorList)
   // }
 
-  const genre = ['Select Genre', 'Electronic', 'Rock', 'Hip-Hop', 'Rap', 'Pop', 'Country', 'Metal', 'Alternative', 'Classical', 'Jazz']
-  const genreOptions = genre.map(genre => {
-    return (
-      <option key={genre} value={genre}>
-        {genre}
-      </option>
-    )
-  })
+  // const genre = ['Select Genre', 'Electronic', 'Rock', 'Hip-Hop', 'Rap', 'Pop', 'Country', 'Metal', 'Alternative', 'Classical', 'Jazz']
+  // const genreOptions = genre.map(genre => {
+  //   return (
+  //     <option key={genre} value={genre}>
+  //       {genre}
+  //     </option>
+  //   )
+  // })
   
   const handleChange = (event) => {
     setNewPlaylist({
@@ -86,12 +85,12 @@ const NewPlaylistFormContainer = (props) => {
         <input name="description" id="description" type="text" value={newPlaylist.description} onChange={handleChange}/>
       </label>
 
-      <label>
+      {/* <label>
         <h6>Genre:</h6>
         <select name="genre" id="genre" type="text" value={newPlaylist.genre} onChange={handleChange}>
             {genreOptions}
         </select>
-      </label>
+      </label> */}
 
       <input type="submit" value="Create New Playlist"/>
     </form>

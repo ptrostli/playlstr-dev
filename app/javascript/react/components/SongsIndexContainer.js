@@ -14,12 +14,10 @@ const SongsIndexContainer = (props) => {
 
   return(
     <div className="songs-container">
-      <h5>SongsIndexContainer</h5>
       {songsList}
-
-      <SearchBar
+      {/* <SearchBar
         
-      />
+      /> */}
     </div>
   )
 }

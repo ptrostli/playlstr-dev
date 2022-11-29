@@ -7,7 +7,6 @@ const PlaylistTile = (props) => {
   return (
     <div className="playlist-tile">
       <Link to={`/playlists/${playlist.id}`}>
-        <h4>PlaylistTile</h4>
         <h4>{playlist.title}</h4>
       </Link>
         <p>{playlist.description}</p>
