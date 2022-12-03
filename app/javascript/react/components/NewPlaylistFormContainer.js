@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom'
+import ErrorList from "./ErrorList";
 
 const NewPlaylistFormContainer = (props) => {
-  // const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({})
   const [redirect, setRedirect] = useState(false)
   const [newPlaylist, setNewPlaylist] = useState({
     title: '',
     description: ''
   })
-  
-  // FORM VALIDATION
-  
+
   // const validSubmission = () => {
   //   let errorList = {}
   //   const requiredFields = 'title' // create array if mandatory fields added
@@ -24,15 +23,6 @@ const NewPlaylistFormContainer = (props) => {
   //   })
   //   setErrors(errorList)
   // }
-
-  // const genre = ['Select Genre', 'Electronic', 'Rock', 'Hip-Hop', 'Rap', 'Pop', 'Country', 'Metal', 'Alternative', 'Classical', 'Jazz']
-  // const genreOptions = genre.map(genre => {
-  //   return (
-  //     <option key={genre} value={genre}>
-  //       {genre}
-  //     </option>
-  //   )
-  // })
   
   const handleChange = (event) => {
     setNewPlaylist({
@@ -84,13 +74,6 @@ const NewPlaylistFormContainer = (props) => {
         <h6>Description:</h6>
         <input name="description" id="description" type="text" value={newPlaylist.description} onChange={handleChange}/>
       </label>
-
-      {/* <label>
-        <h6>Genre:</h6>
-        <select name="genre" id="genre" type="text" value={newPlaylist.genre} onChange={handleChange}>
-            {genreOptions}
-        </select>
-      </label> */}
 
       <input type="submit" value="Create New Playlist"/>
     </form>
