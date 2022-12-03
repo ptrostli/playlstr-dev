@@ -3,6 +3,7 @@ class Api::V1::SongsController < ApiController
     tracks = RSpotify::Track.search('') 
     albums = RSpotify::Album.search('')
     artists = RSpotify::Artist.search('')
+    playlist.add_tracks!(tracks)
     
     playlist = Playlist.find(params[:playlist_id])
     song = Song.new(song_params)
@@ -14,6 +15,13 @@ class Api::V1::SongsController < ApiController
       render json: { errors: song.errors.full_messages.to_sentence}
     end
   end
+
+  # def spotify
+  #   tracks = RSpotify::Track.search('') 
+  #   albums = RSpotify::Album.search('')
+  #   artists = RSpotify::Artist.search('')
+  #   playlist.add_tracks!(tracks)
+  # end
 
   private
   def song_params
