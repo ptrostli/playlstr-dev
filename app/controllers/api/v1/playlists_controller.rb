@@ -10,8 +10,6 @@ class Api::V1::PlaylistsController < ApiController
   def show 
     playlist = Playlist.find(params[:id])
     render json: Playlist.find(params[:id])
-    # tracks = RSpotify::Track.search('Know') 
-    # must determine how to setup a controller for this
   end
 
   def new
@@ -33,12 +31,12 @@ class Api::V1::PlaylistsController < ApiController
     Playlist.destroy(params[:id])
   end
 
-  # def update
-  #   playlist = Playlist.find(params[:id])
-  #   playlist.update_attributes(playlist_params)
+  def update
+    playlist = Playlist.find(params[:id])
+    playlist.update_attributes(playlist_params)
     
-  #   render json: playlist
-  # end
+    render json: playlist
+  end
 
   private
   def playlist_params
