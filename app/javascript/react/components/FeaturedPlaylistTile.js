@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const FeaturedPlaylistTile = (props) => {
 
-
   return (
     <div className="featured-playlist-tile">
       <Link to={`/playlists/${props.featured.id}`}>

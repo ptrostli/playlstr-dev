@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PlaylistTile = (props) => {
-  const {playlist} = props
+  const { playlist } = props
 
   return (
     <div className="playlist-tile">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SearchBar = (props) => {
+const PlaylistSearchBar = (props) => {
   const [searchString, setSearchString] = useState("")
 
   const handleChange = (event) => {
@@ -14,7 +14,7 @@ const SearchBar = (props) => {
       search_string: searchString
     })
     try {
-      const response = await fetch("/api/v1/songs/search", {
+      const response = await fetch("/api/v1/playlists/search", {
         method: "POST",
         body: body,
         headers: {
@@ -22,16 +22,14 @@ const SearchBar = (props) => {
           "Accept": "application/json"
         }
       })
-      
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
-      const responseBody = await response.json()
-      // debugger
-      props.setTaprooms(responseBody)
-    } catch (error) {
-      console.error(`Error in Fetch: ${error.message}`)
+      const fetchedPlaylists = await response.json()
+      props.setPlaylists(fetchedPlaylists)
+    } catch (err) {
+      console.error(`ERROR: ${err.message}`)
     }
   }
 
@@ -45,7 +43,7 @@ const SearchBar = (props) => {
             name="searchString"
             value={searchString}
             onChange={handleChange}
-            placeholder="Search songs"
+            placeholder="Search for playlist!"
           />
           <div className="input-group-button">
             <input type="submit" className="button secondary" value="Search" />
@@ -53,8 +51,7 @@ const SearchBar = (props) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
-
+export default PlaylistSearchBar

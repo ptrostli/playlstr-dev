@@ -1,8 +1,8 @@
 import React from "react";
 import SongTile from "./SongTile";
-// import SearchBar from "./SearchBar";
 
 const SongsIndexContainer = (props) => {
+  
   const songsList = props.playlist.songs.map((song) => {
     return (
       <SongTile 
@@ -15,9 +15,6 @@ const SongsIndexContainer = (props) => {
   return(
     <div className="songs-container">
       {songsList}
-      {/* <SearchBar
-        
-      /> */}
     </div>
   )
 }
