@@ -1,6 +1,6 @@
 class Api::V1::PlaylistsController < ApiController
-  before_action :authenticate_user, except: [:index, :show]
-  before_action :authorize_user, except: [:index, :show, :create, :destroy]
+  before_action :authenticate_user, except: [:index, :show, :search]
+  before_action :authorize_user, except: [:index, :show, :create, :destroy, :search]
 
   def index
     playlists = Playlist.all
@@ -37,6 +37,12 @@ class Api::V1::PlaylistsController < ApiController
     
     render json: playlist
   end
+
+  def search
+    playlists = Playlist.where("title ILIKE ? OR description ILIKE ?", "%#{params['search_string']}%", "%#{params['search_string']}%")
+    
+    render json: playlists
+  end 
 
   private
   def playlist_params

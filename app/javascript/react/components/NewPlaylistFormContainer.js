@@ -10,19 +10,21 @@ const NewPlaylistFormContainer = (props) => {
     description: ''
   })
 
-  // const validSubmission = () => {
-  //   let errorList = {}
-  //   const requiredFields = 'title' // create array if mandatory fields added
-  //   requiredFields.forEach(field => {
-  //     if (newPlaylist[field].trim() === "") {
-  //       errorList = {
-  //         ...errorList,
-  //         [field]: "is required."
-  //       }
-  //     }
-  //   })
-  //   setErrors(errorList)
-  // }
+  const validSubmission = () => {
+    let showErrors = {}
+    const requiredFields = 'title'
+    requiredFields.forEach(field => {
+      if (newPlaylist[field].trim() === "") {
+        showErrors = {
+          ...showErrors,
+          [field]: "is required."
+        }
+      }
+    })
+    setErrors(showErrors)
+    return _.isEmpty()
+  }
+  // Don't forget to implement.
   
   const handleChange = (event) => {
     setNewPlaylist({

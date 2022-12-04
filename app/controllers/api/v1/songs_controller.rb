@@ -3,9 +3,9 @@ class Api::V1::SongsController < ApiController
     tracks = RSpotify::Track.search('') 
     albums = RSpotify::Album.search('')
     artists = RSpotify::Artist.search('')
-    playlist.add_tracks!(tracks)
-    
     playlist = Playlist.find(params[:playlist_id])
+    
+    playlist.add_tracks!(tracks)
     song = Song.new(song_params)
     song.playlist = playlist
 
@@ -16,12 +16,9 @@ class Api::V1::SongsController < ApiController
     end
   end
 
-  # def spotify
-  #   tracks = RSpotify::Track.search('') 
-  #   albums = RSpotify::Album.search('')
-  #   artists = RSpotify::Artist.search('')
-  #   playlist.add_tracks!(tracks)
-  # end
+  def destroy
+    
+  end
 
   private
   def song_params

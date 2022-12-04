@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PlaylistTile from "./PlaylistTile";
 import { Link } from "react-router-dom";
-// import SongsIndexContainer from "./SongsIndexContainer";
+import PlaylistTile from "./PlaylistTile";
+import PlaylistSearchBar from "./PlaylistSearchBar";
 
 const PlaylistsIndexContainer = (props) => {
   const [playlists, setPlaylists] = useState([])
@@ -37,6 +37,10 @@ const PlaylistsIndexContainer = (props) => {
   return(
     <div className="playlists-index">
       <h1>All Playlists</h1>
+      <PlaylistSearchBar 
+        playlists={playlists}
+        setPlaylists={setPlaylists}
+      />
       {playlistsList}
       <Link to='/'>Return Home</Link>||
       <Link to='/playlists/new'>Create Playlist</Link>

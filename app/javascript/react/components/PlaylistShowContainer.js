@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import SongsIndexContainer from "./SongsIndexContainer";
 import { Link, Redirect } from 'react-router-dom'
+import SongsIndexContainer from "./SongsIndexContainer";
+import ErrorList from "./ErrorList";
 
 const PlaylistShowContainer = (props) => {
-  const [playlist, setPlaylist] = useState({songs: []})
+  const [playlist, setPlaylist] = useState({
+    songs: []
+  })
   const [redirect, setRedirect] = useState(false)
-  // const [errors, setErrors] = useState("")
+  const [errors, setErrors] = useState("")
   
   const playlistId = props.match.params.playlistId
 
