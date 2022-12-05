@@ -64,6 +64,14 @@ ul.user-accounts {
     color: red;
     text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
   }
+  ul {
+    font-family: Ubuntu, sans-serif;
+    list-style-position: inside;
+    margin-left: 0%;
+    padding-left: 1%;
+    list-style-type: none;
+    text-align: left;
+  }
 }
 
 .playlists-index {
@@ -129,8 +137,9 @@ div.playlist-tile:hover {
 }
 
 .playlist-search-bar {
-  width: 80%;
+  width: 60%;
   border: 1px;
+  margin-bottom: -1%;
 }
 
 .playlist-show-container {
