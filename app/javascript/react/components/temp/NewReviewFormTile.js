@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ErrorList from "../ErrorList";
 
 const NewReviewFormTile = (props) => {
   const [newReview, setNewReview] = useState({
@@ -7,7 +8,18 @@ const NewReviewFormTile = (props) => {
   })
 
   const validateForm = () => {
-
+    let showErrors = {}
+    const requiredFields = ["title", "body"]
+    requiredFields.forEach(field =>{
+      if(newReview[field].trim() === "") {
+        showErrors = {
+          ...showErrors,
+          [field]: "Must be provided"
+        }
+      }
+    })
+    setErrors(showErrors)
+    return _.isEmpty(showErrors)
   }
 
   const clearForm = () => {

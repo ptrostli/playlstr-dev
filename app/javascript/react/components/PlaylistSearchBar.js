@@ -34,7 +34,7 @@ const PlaylistSearchBar = (props) => {
   }
 
   return (
-    <div className="small-12 medium-6 large-4">
+    <div className="playlist-search-bar">
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-rounded">
           <input

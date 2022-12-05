@@ -35,8 +35,8 @@ const App = (props) => {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={TempHomePage} />
-          {/* <Route exact path="/" component={HomePage} /> */}
+          {/* <Route exact path="/" component={TempHomePage} /> */}
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/playlists" component={PlaylistsIndexContainer} />
           <Route exact path="/playlists/new" component={NewPlaylistFormContainer} />
           <Route exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
