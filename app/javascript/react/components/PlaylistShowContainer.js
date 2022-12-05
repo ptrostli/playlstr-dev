@@ -79,7 +79,7 @@ const PlaylistShowContainer = (props) => {
 
   return (
     <div className="playlist-show-container">
-      <h1>{playlist.title}</h1>
+      <h1 className="header">{playlist.title}</h1>
       <div className="playlist-information">
         <h5>{playlist.description}</h5>
         <div className="playlist-timestamps">
@@ -89,15 +89,15 @@ const PlaylistShowContainer = (props) => {
         <p>USER: {playlist.user_id} *fix later to get username* </p>
         <div className="edit-delete-buttons">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
-          <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" onClick={editPlaylist} />
+          {/* <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" onClick={editPlaylist} /> */}
         </div>
       </div>
       <SongsIndexContainer 
         playlist={playlist}
       />
       <div className="links">
-        <Link to="/">Return Home</Link>|| 
-        <Link to="/playlists">All Playlists</Link>||
+        <Link to="/">Return Home</Link>
+        <Link to="/playlists">All Playlists</Link>
         <Link to='/playlists/new'>Create Playlist</Link>
       </div>
     </div>
