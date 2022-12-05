@@ -13,8 +13,6 @@ const FeaturedPlaylistTile = (props) => {
       <ul>
         <li>songs go here</li>
         <li>TO BE ADDED</li>
-
-        <p>test</p>
       </ul>
     </div>
   )
