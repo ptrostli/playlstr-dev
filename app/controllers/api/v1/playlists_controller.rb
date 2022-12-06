@@ -38,6 +38,12 @@ class Api::V1::PlaylistsController < ApiController
     render json: playlist
   end
 
+  def edit
+    playlist = Playlist.find(params[:id])
+    
+    render json: playlist
+  end
+
   def search
     playlists = Playlist.where("title ILIKE ? OR description ILIKE ?", "%#{params['search_string']}%", "%#{params['search_string']}%")
     
