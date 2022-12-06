@@ -10,7 +10,7 @@
 - Backend: Ruby 2.7.3, Rails 5.2.5
 - Frontend: React
 - Database: PostgreSQL
-- Third party APIs: Yelp Fusion API, Google Maps API
+- Third Party APIs: Spotify API (RSpotify)
 
 ## 🖥 Development 
 Prerequisite: have Yarn installed, and Ruby version 2.7.3.
