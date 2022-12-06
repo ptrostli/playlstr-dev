@@ -27,26 +27,6 @@ const PlaylistShowContainer = (props) => {
     }
   }
 
-  // const editPlaylist = async() => {
-  //   try {
-  //     const response = await fetch(`/api/v1/playlists/${playlistId}`, {
-  //       credentials: "same-origin",
-  //       method: "PATCH",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json'
-  //       }
-  //     })
-  //     if (!response.ok) {
-  //       const errorMessage = `${response.status} - (${response.statusText})`
-  //       const error = new Error(`${errorMessage}`)
-  //       throw(error)
-  //     }
-  //   } catch(err) {
-  //     console.error(`ERROR: ${err.message}`)
-  //   }
-  // }
-
   const deletePlaylist = async() => {
     try {
       const response = await fetch(`/api/v1/playlists/${playlistId}`, {
@@ -89,7 +69,7 @@ const PlaylistShowContainer = (props) => {
         <p>USER: {playlist.user_id} *fix later to get username* </p>
         <div className="edit-delete-buttons">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
-          {/* <input type="button" value="Edit Playlist (THIS DOES NOTHING YET)" onClick={editPlaylist} /> */}
+          <Link to={`/playlists/${playlistId}/edit`}>Please Edit me</Link>
         </div>
       </div>
       <SongsIndexContainer 
