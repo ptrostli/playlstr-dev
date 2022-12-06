@@ -1,7 +1,7 @@
 <h1 align="center">Playlstr</h1>
 
 <div align="center">
-  <img src="/app/assets/images/beantown-brews.png" alt="Beantown brews logo" width="400px" height="150px"/>
+  <img src="/app/assets/images/playlstr-logo.png" alt="Beantown brews logo" width="400px" height="150px"/>
   <br>
   <i>Playlstr is a web application for viewing user curated playlists! Anyone can register an account and create their own playlists. Using the Spotify API a user has access to thousands of songs! You don't even need to connect your Spotify account.</i>
 </div>
@@ -53,6 +53,6 @@ Prerequisite: have Yarn installed, and Ruby version 2.7.3.
 
 ## 🫠 Author
 
-Email: philip@trostli.net
-LinkedIn: https://www.linkedin.com/in/ptrostli/
-GitHub: https://github.com/ptrostli
+- Email: philip@trostli.net
+- LinkedIn: https://www.linkedin.com/in/ptrostli/
+- GitHub: https://github.com/ptrostli
