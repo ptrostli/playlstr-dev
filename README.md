@@ -53,6 +53,6 @@ Prerequisite: have Yarn installed, and Ruby version 2.7.3.
 
 ## 🫠 Author
 
-Email: philip@trostli.net
-LinkedIn: https://www.linkedin.com/in/ptrostli/
-GitHub: https://github.com/ptrostli
+- Email: philip@trostli.net
+- LinkedIn: https://www.linkedin.com/in/ptrostli/
+- GitHub: https://github.com/ptrostli
