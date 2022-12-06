@@ -1,6 +1,6 @@
 class Api::V1::SearchController < ApiController
   def index
-    tracks = RSpotify::Track.search(params["search"]) 
+    tracks = RSpotify::Track.search(params["query"]) 
 
     render json: {tracks: tracks}
   end
