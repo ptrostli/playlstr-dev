@@ -1,19 +1,20 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import SearchResultTile from "./SearchResultTile";
 
 // export default PlaylistEditContainer = (props) => {
 const PlaylistEditContainer = (props) => {
-  const [searchString, setSearchString] = useState("")
+  const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
 
   const handleSearchChange = (event) => {
-    const searchString = event.currentTarget.value
-    setSearchString(searchString)
-    performSearch(searchString)
+    const searchTracks = event.currentTarget.value
+    setSearchTracks(searchTracks)
+    performSearch(searchTracks)
   }
 
-  const performSearch = async (searchString) => {
+  const performSearch = async (searchTracks) => {
     try {
-      const response = await fetch(`/api/v1/search?query=${searchString}`)
+      const response = await fetch(`/api/v1/search?query=${searchTracks}`)
       if (!response.ok) {
         const errorMessage = `${response.status}  (${response.statusText})`
         const error = new Error(errorMessage)
@@ -28,20 +29,22 @@ const PlaylistEditContainer = (props) => {
     }
   }
 
-  const testSomething = searchResults.map((searchResult) => {
+  const tracksList = searchResults.map((searchResult) => {
     return (
       <div>
-        <p>{searchResult.album.name}</p>
+        <SearchResultTile
+          key={searchResult.id}
+          song={searchResult}
+        />
       </div>
     )
   })
 
   return (
     <div>
-      <h1>Hi</h1>
-      <input onChange={handleSearchChange} value={searchString}/>
-      <h2>results</h2>
-      {testSomething}
+      <h2>Results</h2>
+      <input onChange={handleSearchChange} value={searchTracks}/>
+      {tracksList}
     </div>
   )
 }
