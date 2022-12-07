@@ -1,6 +1,6 @@
 class Api::V1::SearchController < ApiController
-  before_action :authenticate_user
-  before_action :authorize_user
+  # before_action :authenticate_user
+  # before_action :authorize_user
 
   def index
     tracks = RSpotify::Track.search(params["query"]) 
