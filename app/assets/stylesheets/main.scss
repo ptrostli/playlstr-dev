@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: Ubuntu, sans-serif;
   background-color: whitesmoke;
 }
 
@@ -65,7 +66,6 @@ ul.user-accounts {
     text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
   }
   ul {
-    font-family: Ubuntu, sans-serif;
     list-style-position: inside;
     margin-left: 0%;
     padding-left: 1%;
@@ -85,16 +85,18 @@ ul.user-accounts {
 }
 
 .links {
-  font-family: Ubuntu, sans-serif;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   a {
     background-color: black;
     color: white;
     border: 1px solid black;
     border-radius: 1rem;
-    margin: 1rem;
-    padding: 3px 17px 4px;
+    margin: 5px;
+    padding: 3px 8px 4px;
     text-shadow: 1px 1px 1.5px rgb(250, 0, 0);
   } a:hover {
     box-shadow: 2px 2px 2px 0.5px #a4a4a4;
@@ -143,16 +145,47 @@ div.playlist-tile:hover {
 }
 
 .playlist-show-container {
+  border: 1px solid green;
+  margin: 5px;
   background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-information {
+  border: 1px solid purple;
+  margin: 5px;
+}
+
+.edit-or-delete {
+  border: 1px solid orange;
+  font-weight: bold;
+  margin-bottom: 5px;
+  input {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: 5px;
+    padding: 3px 8px 4px;
+    text-shadow: 1px 1px 1.5px rgb(250, 0, 0);
+  }
+  input:hover {
+    box-shadow: 1px 1px 1px 0.5px #a4a4a4;
+    color: rgb(206, 27, 27);
+    font-family: Ubuntu, sans-serif;
+    text-shadow: 0.5px 0.5px 0.5px rgb(135, 0, 0);
+  }
 }
 
 .songs-container {
-  margin: 1rem;
+  border: 1px solid blue;
+  margin: 5px;
 }
 
 .song-tile {
   border: 1px solid red;
-  margin: 1rem;
+  margin: 5px;
 }
 
 .search-result-tile {
