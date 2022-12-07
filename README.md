@@ -17,7 +17,7 @@ Prerequisite: have Yarn installed, and Ruby version 2.7.3.
 
 1. Clone the repository
     ```sh
-    git clone https://github.com/axgunst/la-breakable-toy-beantown-brews.git
+    git clone https://github.com/ptrostli/playlstr-dev.git
     ```
     
 2. Install Ruby gems
