@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import SearchResultTile from "./SearchResultTile";
+import SelectedTracksTile from "./SelectedTracksTile";
 
 // export default PlaylistEditContainer = (props) => {
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
+  const [selectedTracks, setSelectedTracks] = useState([])
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
@@ -31,20 +33,28 @@ const PlaylistEditContainer = (props) => {
 
   const tracksList = searchResults.map((searchResult) => {
     return (
-      <div>
         <SearchResultTile
           key={searchResult.id}
-          song={searchResult}
+          track={searchResult}
         />
-      </div>
+    )
+  })
+
+  const selectedTracksList = selectedTracks.map((selectedTrack) => {
+    return (
+      <SelectedTracksTile 
+        key={selectedTrack.id}
+        track={selectedTrack}
+      />
     )
   })
 
   return (
-    <div>
-      <h2>Results</h2>
+    <div className="playlist-edit-container">
+      <h3>Add Songs!</h3>
       <input onChange={handleSearchChange} value={searchTracks}/>
       {tracksList}
+      {selectedTracksList}
     </div>
   )
 }

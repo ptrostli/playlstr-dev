@@ -1,12 +1,17 @@
 import React from "react";
 
 const SearchResultTile = (props) => {
-  const { song } = props
+  const { track } = props
 
-  // song.preview_url   --  30 second samples.
+  const addTrack = (event) => {
+    console.log("Woops this doesn't work yet, sorry")
+  }
+
   return (
     <div className="search-result-tile">
-        <p>{song.duration_ms} | {song.name} - {song.artists[0].name}</p>
+      <p>{track.duration_ms} | {track.name} - {track.artists[0].name}</p>
+      <input type="button" value="+" onClick={addTrack} />
+      {/* add song.preview_url for samples in future */}
     </div>
   )
 }

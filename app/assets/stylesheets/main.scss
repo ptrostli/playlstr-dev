@@ -154,3 +154,9 @@ div.playlist-tile:hover {
   border: 1px solid red;
   margin: 1rem;
 }
+
+.search-result-tile {
+  display: flex;
+  border: 1px solid black;
+  justify-content: baseline;
+}
