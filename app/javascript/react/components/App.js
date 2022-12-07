@@ -1,6 +1,5 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
-import TempHomePage from './TempHomePage'
 import HomePage from './HomePage'
 import PlaylistsIndexContainer from './PlaylistsIndexContainer'
 import PlaylistShowContainer from './PlaylistShowContainer'
@@ -36,7 +35,6 @@ const App = (props) => {
     <div>
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" component={TempHomePage} /> */}
           <Route exact path="/" component={HomePage} />
           <Route exact path="/playlists" component={PlaylistsIndexContainer} />
           <Route exact path="/playlists/new" component={NewPlaylistFormContainer} />
