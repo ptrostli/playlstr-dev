@@ -3,8 +3,32 @@ import React from "react";
 const SearchResultTile = (props) => {
   const { track } = props
 
-  const addTrack = (event) => {
-    console.log("Woops this doesn't work yet, sorry")
+  const playlistId = props.match.params.playlistId
+
+  const addTrack = async (event) => {
+    event.preventDefault()
+    try {
+      const response = await fetch(`/api/v1/playlists/${playlistId}`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ playlist: newPlaylist })
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const fetchedPlaylist = await response.json()
+      if (fetchedPlaylist.id) {
+        console.log('Song created!')
+      }
+    } catch(err) {
+      console.error(`ERROR: ${err.message}`)
+    }
   }
 
   return (
