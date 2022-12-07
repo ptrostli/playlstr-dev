@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: Ubuntu, sans-serif;
   background-color: whitesmoke;
 }
 
@@ -65,7 +66,6 @@ ul.user-accounts {
     text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
   }
   ul {
-    font-family: Ubuntu, sans-serif;
     list-style-position: inside;
     margin-left: 0%;
     padding-left: 1%;
@@ -85,9 +85,11 @@ ul.user-accounts {
 }
 
 .links {
-  font-family: Ubuntu, sans-serif;
   font-weight: bold;
   margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   a {
     background-color: black;
     color: white;
@@ -157,7 +159,6 @@ div.playlist-tile:hover {
 
 .edit-or-delete {
   border: 1px solid orange;
-  font-family: Ubuntu, sans-serif;
   font-weight: bold;
   margin-bottom: 5px;
   input {
@@ -170,7 +171,7 @@ div.playlist-tile:hover {
     text-shadow: 1px 1px 1.5px rgb(250, 0, 0);
   }
   input:hover {
-    box-shadow: 2px 2px 2px 0.5px #a4a4a4;
+    box-shadow: 1px 1px 1px 0.5px #a4a4a4;
     color: rgb(206, 27, 27);
     font-family: Ubuntu, sans-serif;
     text-shadow: 0.5px 0.5px 0.5px rgb(135, 0, 0);
