@@ -67,18 +67,17 @@ const PlaylistShowContainer = (props) => {
           <p>UPDATED: {playlist.updated_at}</p>
         </div>
         <p>USER: {playlist.user_id} *fix later to get username* </p>
-        <div className="edit-delete-buttons">
-          <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
-          <Link to={`/playlists/${playlistId}/edit`}>Please Edit me</Link>
-        </div>
       </div>
+      <div className="edit-or-delete">
+          <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
+          <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
+        </div>
       <SongsIndexContainer 
         playlist={playlist}
       />
       <div className="links">
         <Link to="/">Return Home</Link>
         <Link to="/playlists">All Playlists</Link>
-        <Link to='/playlists/new'>Create Playlist</Link>
       </div>
     </div>
   )
