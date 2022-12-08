@@ -28,8 +28,8 @@ const PlaylistsIndexContainer = (props) => {
   const playlistsList = playlists.map((playlist) => {
     return (
       <PlaylistTile 
-      key={playlist.id}
-      playlist={playlist}
+        key={playlist.id}
+        playlist={playlist}
       />
     )
   })

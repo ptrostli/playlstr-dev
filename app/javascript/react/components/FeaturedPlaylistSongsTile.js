@@ -1,13 +1,13 @@
 import React from "react";
 
-const FeaturedPlaylistSongsTile = (props) => {
-  const { song } = props
+const FeaturedPlaylistTracksTile = (props) => {
+  const { track } = props
 
   return (
     <ul>
-      <li>{song.length} || {song.name} - {song.artist}</li>
+      <li>{track.length} || {track.name} - {track.artist}</li>
     </ul>
   )
 }
 
-export default FeaturedPlaylistSongsTile
+export default FeaturedPlaylistTracksTile

@@ -6,7 +6,7 @@ const SearchResultTile = (props) => {
   const addTrack = async () => {
     try {
       const requestBody = {
-        song: {
+        track: {
           name: track.name,
           album: track.album.name,
           length: track.duration_ms,
@@ -14,7 +14,7 @@ const SearchResultTile = (props) => {
           spotify_id: track.id
         },
       }
-      const response = await fetch(`/api/v1/playlists/${playlistId}/songs`, {
+      const response = await fetch(`/api/v1/playlists/${playlistId}/tracks`, {
         method: "POST",
         credentials: "same-origin",
         headers: {
@@ -41,7 +41,7 @@ const SearchResultTile = (props) => {
     <div className="search-result-tile">
       <p>{track.duration_ms} | {track.name} - {track.artists[0].name}</p>
       <input type="button" value="+" onClick={addTrack} />
-      {/* add song.preview_url for samples in future */}
+      {/* add track.preview_url for samples in future */}
     </div>
   )
 }

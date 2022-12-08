@@ -4,7 +4,7 @@ import FeaturedPlaylistTile from "./FeaturedPlaylistTile";
 
 const HomePage = (props) => {
   const [featuredPlaylist, setFeaturedPlaylist] = useState({
-    songs: []
+    tracks: []
   })
   
   const getFeaturedPlaylist = async() => {
