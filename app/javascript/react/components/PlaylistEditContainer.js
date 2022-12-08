@@ -6,7 +6,7 @@ import SelectedTracksTile from "./SelectedTracksTile";
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [selectedTracks, setSelectedTracks] = useState([])
+  const [selectedTracks, setSelectedTracks] = useState([1,2,3])
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
@@ -53,8 +53,12 @@ const PlaylistEditContainer = (props) => {
     <div className="playlist-edit-container">
       <h3>Add Songs!</h3>
       <input onChange={handleSearchChange} value={searchTracks}/>
-      {tracksList}
-      {selectedTracksList}
+      <div className="search-list">
+        {tracksList}
+      </div>
+      <div className="selected-list">
+        {selectedTracksList}
+      </div>
     </div>
   )
 }
