@@ -5,6 +5,7 @@ set -o errexit
 
 bundle install
 yarn install
+rails db:drop rails db:create
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 bundle exec rake db:migrate
