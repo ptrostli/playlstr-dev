@@ -1,7 +1,7 @@
 import React from "react";
 import SongTile from "./SongTile";
 
-const SongsIndexContainer = (props) => {
+const SongsIndexTile = (props) => {
   
   const songsList = props.playlist.songs.map((song) => {
     return (
@@ -19,4 +19,4 @@ const SongsIndexContainer = (props) => {
   )
 }
 
-export default SongsIndexContainer
+export default SongsIndexTile

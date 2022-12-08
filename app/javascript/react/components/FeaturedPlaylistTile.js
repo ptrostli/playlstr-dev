@@ -1,4 +1,5 @@
 import React from "react";
+import FeaturedPlaylistSongsTile from "./FeaturedPlaylistSongsTile";
 import { Link } from "react-router-dom";
 
 const FeaturedPlaylistTile = (props) => {
@@ -6,9 +7,10 @@ const FeaturedPlaylistTile = (props) => {
 
   const featuredSongsList = props.featured.songs.map((song) => {
     return (
-      <ul className="featured-songs-list">
-        <li>{song.length} || {song.name} - {song.artist}</li>
-      </ul>
+      <FeaturedPlaylistSongsTile 
+        key={song.id}
+        song={song}
+      />
     )
   })
 
