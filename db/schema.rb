@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_11_26_212852) do
     t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
-  create_table "songs", force: :cascade do |t|
+  create_table "tracks", force: :cascade do |t|
     t.string "name", null: false
     t.string "artist", null: false
     t.string "album", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_11_26_212852) do
     t.bigint "playlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_songs_on_playlist_id"
+    t.index ["playlist_id"], name: "index_tracks_on_playlist_id"
   end
 
   create_table "users", force: :cascade do |t|
