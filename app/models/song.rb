@@ -3,8 +3,6 @@ class Song < ApplicationRecord
   validates :artist, presence:true
   validates :album, presence:true
   validates :length, presence:true
-  validates :release_date, presence:true
-  validates :genre, presence:true
 
   belongs_to :playlist
 end

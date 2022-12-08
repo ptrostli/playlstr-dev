@@ -1,6 +1,6 @@
 class Api::V1::PlaylistsController < ApiController
-  before_action :authenticate_user, except: [:index, :show, :search]
-  before_action :authorize_user, except: [:index, :show, :create, :destroy, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authorize_user!, except: [:index, :show, :create, :destroy, :search]
 
   def index
     playlists = Playlist.all

@@ -196,3 +196,14 @@ div.playlist-tile:hover {
   border: 1px solid black;
   justify-content: baseline;
 }
+
+.playlist-edit-container {
+  display: flex;
+  flex-direction: column;
+}
+.edit-sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
