@@ -6,7 +6,7 @@ const SpotifySearchTile = (props) => {
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState("")
   const [artists, setArtists] = useState([])
-  // const [songs, setSongs] = useState([])
+  // const [tracks, setTracks] = useState([])
   // const [albums, setAlbums] = useState([])
 
   const searchArtists = async(event) => {

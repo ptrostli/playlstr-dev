@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom'
-import SongsIndexTile from "./SongsIndexTile";
+import TracksIndexTile from "./TracksIndexTile";
 import ErrorList from "./ErrorList";
 
 const PlaylistShowContainer = (props) => {
   const [playlist, setPlaylist] = useState({
-    songs: []
+    tracks: []
   })
   const [redirect, setRedirect] = useState(false)
   const [errors, setErrors] = useState("")
@@ -72,7 +72,7 @@ const PlaylistShowContainer = (props) => {
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
         </div>
-      <SongsIndexTile 
+      <TracksIndexTile 
         playlist={playlist}
       />
       <div className="links">

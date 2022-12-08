@@ -32,7 +32,7 @@ const SelectedTracksTile = (props) => {
     <div>
       <p>test</p>
       <input type="button" value="-" onClick={removeTrack} />
-      {/* add song.preview_url for samples in future */}
+      {/* add track.preview_url for samples in future */}
     </div>
   )
 }

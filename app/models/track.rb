@@ -1,4 +1,4 @@
-class Song < ApplicationRecord
+class Track < ApplicationRecord
   validates :name, presence:true
   validates :artist, presence:true
   validates :album, presence:true

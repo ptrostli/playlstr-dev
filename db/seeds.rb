@@ -1,6 +1,6 @@
 User.destroy_all
 Playlist.destroy_all
-Song.destroy_all
+Track.destroy_all
 
 user_1 = User.create(
   username: "demo",
@@ -35,7 +35,7 @@ playlist_3 = Playlist.create(
   user: user_2
 )
 
-song_1 = Song.create(
+track_1 = Track.create(
   name: "10:35",
   artist: "Tiesto ft. Tate McRae",
   album: "10:35",
@@ -43,7 +43,7 @@ song_1 = Song.create(
   playlist: playlist_1
 )
 
-song_2 = Song.create(
+track_2 = Track.create(
   name: "Drift",
   artist: "Syn Cole",
   album: "Drift",
@@ -51,7 +51,7 @@ song_2 = Song.create(
   playlist: playlist_1
 )
 
-song_3 = Song.create(
+track_3 = Track.create(
   name: "September",
   artist: "James Arthur",
   album: "September (MENTIS Remix)",
@@ -59,7 +59,7 @@ song_3 = Song.create(
   playlist: playlist_2
 )
 
-song_4 = Song.create(
+track_4 = Track.create(
   name: "A Moment Apart",
   artist: "ODESZA",
   album: "A Moment Apart",
@@ -67,7 +67,7 @@ song_4 = Song.create(
   playlist: playlist_2
 )
 
-song_5 = Song.create(
+track_5 = Track.create(
   name: "Sweet Disaster",
   artist: "DREAMERS",
   album: "This Album Does Not Exist",
@@ -75,7 +75,7 @@ song_5 = Song.create(
   playlist: playlist_3
 )
 
-song_6 = Song.create(
+track_6 = Track.create(
   name: "Will Do",
   artist: "TV On The Radio",
   album: "Nine Types of Light",
@@ -83,7 +83,7 @@ song_6 = Song.create(
   playlist: playlist_3
 )
 
-song_7 = Song.create(
+track_7 = Track.create(
   name: "Saturday Nights REMIX",
   artist: "Khalid, Kane Brown",
   album: "Saturday Nights REMIX",

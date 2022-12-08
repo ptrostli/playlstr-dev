@@ -1,15 +1,15 @@
 import React from "react";
-import FeaturedPlaylistSongsTile from "./FeaturedPlaylistSongsTile";
+import FeaturedPlaylistTracksTile from "./FeaturedPlaylistTracksTile";
 import { Link } from "react-router-dom";
 
 const FeaturedPlaylistTile = (props) => {
   const { featured } = props 
 
-  const featuredSongsList = props.featured.songs.map((song) => {
+  const featuredTracksList = props.featured.tracks.map((track) => {
     return (
-      <FeaturedPlaylistSongsTile 
-        key={song.id}
-        song={song}
+      <FeaturedPlaylistTracksTile 
+        key={track.id}
+        track={track}
       />
     )
   })
@@ -20,7 +20,7 @@ const FeaturedPlaylistTile = (props) => {
         <h2>{featured.title}</h2>
       </Link>
       <p>{featured.description}</p>
-      {featuredSongsList}
+      {featuredTracksList}
     </div>
   )
 }

@@ -55,7 +55,7 @@ const PlaylistEditContainer = (props) => {
 
   return (
     <div className="playlist-edit-container">
-      <h3>Add Songs!</h3>
+      <h3>Add Tracks!</h3>
         <input onChange={handleSearchChange} value={searchTracks}/>
       <div className="edit-sections">
         <div className="search-list">
