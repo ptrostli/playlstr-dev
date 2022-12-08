@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import FeaturedPlaylistTile from "./FeaturedPlaylistTile";
 
 const HomePage = (props) => {
-  const [featuredPlaylist, setFeaturedPlaylist] = useState({})
+  const [featuredPlaylist, setFeaturedPlaylist] = useState({
+    songs: []
+  })
   
   const getFeaturedPlaylist = async() => {
     try {
