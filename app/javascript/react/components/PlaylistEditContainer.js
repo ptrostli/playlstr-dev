@@ -6,7 +6,9 @@ import SelectedTracksTile from "./SelectedTracksTile";
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [selectedTracks, setSelectedTracks] = useState([1,2,3])
+  const [selectedTracks, setSelectedTracks] = useState([])
+
+  const playlistId = props.match.params.playlistId
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
@@ -36,15 +38,17 @@ const PlaylistEditContainer = (props) => {
         <SearchResultTile
           key={searchResult.id}
           track={searchResult}
-        />
-    )
-  })
-
-  const selectedTracksList = selectedTracks.map((selectedTrack) => {
+          playlistId={playlistId}
+          />
+          )
+        })
+        
+        const selectedTracksList = selectedTracks.map((selectedTrack) => {
     return (
       <SelectedTracksTile 
         key={selectedTrack.id}
         track={selectedTrack}
+        playlistId={playlistId}
       />
     )
   })
@@ -52,12 +56,14 @@ const PlaylistEditContainer = (props) => {
   return (
     <div className="playlist-edit-container">
       <h3>Add Songs!</h3>
-      <input onChange={handleSearchChange} value={searchTracks}/>
-      <div className="search-list">
-        {tracksList}
-      </div>
-      <div className="selected-list">
-        {selectedTracksList}
+        <input onChange={handleSearchChange} value={searchTracks}/>
+      <div className="edit-sections">
+        <div className="search-list">
+          {tracksList}
+        </div>
+        <div className="selected-list">
+          {selectedTracksList}
+        </div>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 class SongSerializer < ActiveModel::Serializer
-  attributes :id, :name, :artist, :album, :length, :release_date, :genre
+  attributes :id, :name, :artist, :album, :length, :spotify_id
 
   belongs_to :playlist
 end

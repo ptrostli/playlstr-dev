@@ -5,8 +5,7 @@ class CreateSongs < ActiveRecord::Migration[5.2]
       t.string :artist, null:false 
       t.string :album, null:false 
       t.string :length, null:false 
-      t.string :release_date, null:false 
-      t.string :genre, null:false 
+      t.string :spotify_id
 
       t.belongs_to :playlist
 

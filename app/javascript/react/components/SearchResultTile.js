@@ -1,36 +1,40 @@
 import React from "react";
 
 const SearchResultTile = (props) => {
-  const { track } = props
+  const { track, playlistId } = props
 
-  // const playlistId = props.match.params.playlistId
-
-  // const addTrack = async (event) => {
-  const addTrack =  (event) => {
-    console.log(`I don't do shit yet, D:`)
-    // event.preventDefault()
-    // try {
-    //   const response = await fetch(`/api/v1/playlists/${playlistId}`, {
-    //     method: "POST",
-    //     credentials: "same-origin",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Accept": "application/json"
-    //     },
-    //     body: JSON.stringify({ playlist: newPlaylist })
-    //   })
-    //   if (!response.ok) {
-    //     const errorMessage = `${response.status} (${response.statusText})`
-    //     const error = new Error(errorMessage)
-    //     throw(error)
-    //   }
-    //   const fetchedPlaylist = await response.json()
-    //   if (fetchedPlaylist.id) {
-    //     console.log('Song created!')
-    //   }
-    // } catch(err) {
-    //   console.error(`ERROR: ${err.message}`)
-    // }
+  const addTrack = async () => {
+    try {
+      const requestBody = {
+        song: {
+          name: track.name,
+          album: track.album.name,
+          length: track.duration_ms,
+          artist: track.artists[0].name,
+          spotify_id: track.id
+        },
+      }
+      const response = await fetch(`/api/v1/playlists/${playlistId}/songs`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify (requestBody)
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const fetchedPlaylist = await response.json()
+      if (fetchedPlaylist.id) {
+        console.log('Track added!')
+      }
+    } catch(err) {
+      console.error(`ERROR: ${err.message}`)
+    }
   }
 
   return (
