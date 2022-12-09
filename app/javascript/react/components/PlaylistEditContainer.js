@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import SearchResultTile from "./SearchResultTile";
 import TrackTile from "./TrackTile";
 
-// export default PlaylistEditContainer = (props) => {
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
