@@ -3,9 +3,11 @@ import React from "react";
 const FeaturedPlaylistTracksTile = (props) => {
   const { track } = props
 
+  const time = new Date(track.length);
+
   return (
     <ul>
-      <li>{track.length} || {track.name} - {track.artist}</li>
+      <li>{`${time.getMinutes()}:${time.getSeconds()}`} || {track.name} - {track.artist}</li>
     </ul>
   )
 }
