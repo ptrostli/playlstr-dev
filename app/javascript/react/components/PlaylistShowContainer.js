@@ -75,6 +75,10 @@ const PlaylistShowContainer = (props) => {
 
   return (
     <div className="playlist-show-container">
+      <div className="links">
+        <Link to="/">Return Home</Link>
+        <Link to="/playlists">All Playlists</Link>
+      </div>
       <h1 className="header">{playlist.title}</h1>
       <div className="playlist-information">
         <h5>{playlist.description}</h5>
@@ -95,10 +99,6 @@ const PlaylistShowContainer = (props) => {
         setPlaylist={setPlaylist}
         getPlaylist={getPlaylist}
       />
-      <div className="links">
-        <Link to="/">Return Home</Link>
-        <Link to="/playlists">All Playlists</Link>
-      </div>
     </div>
   )
 }
