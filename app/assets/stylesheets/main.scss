@@ -187,14 +187,17 @@ div.playlist-tile:hover {
 }
 
 .track-tile {
+  display: flex;
+  justify-content: baseline;
   border: 1px solid red;
   margin: 5px;
 }
 
 .search-result-tile {
   display: flex;
-  border: 1px solid black;
   justify-content: baseline;
+  border: 1px solid black;
+  margin: 5px;
 }
 
 .playlist-edit-container {

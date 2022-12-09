@@ -37,9 +37,11 @@ const SearchResultTile = (props) => {
     }
   }
 
+  const time = new Date(track.duration_ms);
+  
   return (
     <div className="search-result-tile">
-      <p>{track.duration_ms} | {track.name} - {track.artists[0].name}</p>
+      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
       <input type="button" value="+" onClick={addTrack} />
       {/* add track.preview_url for samples in future */}
     </div>

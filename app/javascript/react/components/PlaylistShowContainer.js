@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
-import TracksIndexTile from "./TracksIndexTile";
+import PlaylistEditContainer from "./PlaylistEditContainer";
+import TracksListTile from "./TracksListTile";
 import ErrorList from "./ErrorList";
 
 const PlaylistShowContainer = (props) => {
@@ -70,6 +71,8 @@ const PlaylistShowContainer = (props) => {
     return <Redirect to ="/playlists"/>
   }
 
+
+
   return (
     <div className="playlist-show-container">
       <h1 className="header">{playlist.title}</h1>
@@ -84,9 +87,13 @@ const PlaylistShowContainer = (props) => {
       <div className="edit-or-delete">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
+          {/* adjust this to display a modified state of components that allows for adding/deleting */}
         </div>
-      <TracksIndexTile 
+      <PlaylistEditContainer 
         playlist={playlist}
+        playlistId={playlistId}
+        setPlaylist={setPlaylist}
+        getPlaylist={getPlaylist}
       />
       <div className="links">
         <Link to="/">Return Home</Link>
