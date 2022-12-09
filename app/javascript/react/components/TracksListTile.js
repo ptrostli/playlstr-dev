@@ -1,7 +1,7 @@
 import React from "react";
 import TrackTile from "./TrackTile";
 
-const TracksIndexTile = (props) => {
+const TracksListTile = (props) => {
   
   const tracksList = props.playlist.tracks.map((track) => {
     return (
@@ -19,4 +19,4 @@ const TracksIndexTile = (props) => {
   )
 }
 
-export default TracksIndexTile
+export default TracksListTile

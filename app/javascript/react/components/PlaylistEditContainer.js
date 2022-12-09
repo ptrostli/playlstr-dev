@@ -1,14 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import SearchResultTile from "./SearchResultTile";
-import SelectedTracksTile from "./SelectedTracksTile";
+import TrackTile from "./TrackTile";
 
 // export default PlaylistEditContainer = (props) => {
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [selectedTracks, setSelectedTracks] = useState([])
-
-  const playlistId = props.match.params.playlistId
+  // const [tracks, setTracks] = useState([props.playlist.tracks])
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
@@ -25,7 +23,6 @@ const PlaylistEditContainer = (props) => {
         throw(error)
       } 
       const results = await response.json()
-      // setPlaylist(results)
       console.log(results)
       setSearchResults(results.tracks)
     } catch(err) {
@@ -33,36 +30,40 @@ const PlaylistEditContainer = (props) => {
     }
   }
 
-  const tracksList = searchResults.map((searchResult) => {
+  const searchedTracksList = searchResults.map((searchResult) => {
     return (
-        <SearchResultTile
-          key={searchResult.id}
-          track={searchResult}
-          playlistId={playlistId}
-          />
-          )
-        })
-        
-        const selectedTracksList = selectedTracks.map((selectedTrack) => {
-    return (
-      <SelectedTracksTile 
-        key={selectedTrack.id}
-        track={selectedTrack}
-        playlistId={playlistId}
+      <SearchResultTile
+        key={searchResult.id}
+        track={searchResult}
+        playlistId={props.playlistId}
       />
     )
   })
 
+  const tracksList = props.playlist.tracks.map((track) => {
+    return (
+      <TrackTile 
+        key={track.id}
+        track={track}
+        playlistId={props.playlistId}
+      />
+    )
+  })
+
+  // ADD USE EFFECT HERE
+
   return (
     <div className="playlist-edit-container">
       <h3>Add Tracks!</h3>
-        <input onChange={handleSearchChange} value={searchTracks}/>
+      <input onChange={handleSearchChange} value={searchTracks}/>
       <div className="edit-sections">
-        <div className="search-list">
+        <div className="tracks-list">
+          {/* add independent search function */}
           {tracksList}
         </div>
-        <div className="selected-list">
-          {selectedTracksList}
+        <div className="search-list">
+          {/* add independent search function */}
+          {searchedTracksList}
         </div>
       </div>
     </div>
