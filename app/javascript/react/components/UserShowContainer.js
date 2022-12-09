@@ -27,7 +27,7 @@ const UserShowContainer = (props) => {
   let joinDate
   if (user.created_at) {
     const date = new Date(user.created_at)
-    joinDate = date.toLocaleDateString()
+    joinDate = date.toLocaleDateTimeString()
   }
 
   return (

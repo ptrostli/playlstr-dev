@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-const SongSearchBar = (props) => {
+const TrackSearchBar = (props) => {
   const [searchString, setSearchString] = useState("")
-  const [songs, setSongs] = useState([])
+  const [tracks, setTracks] = useState([])
 
   const handleChange = (event) => {
     const newSearchString = event.target.value
     setSearchString(newSearchString)
   }
 
-  const handleSongSearch = async (event) => {
+  const handleTrackSearch = async (event) => {
     event.preventDefault()
     const body = JSON.stringify({
       search_string: searchString
     })
     try {
-      const response = await fetch("/api/v1/songs/create", {
+      const response = await fetch("/api/v1/tracks/create", {
         method: "POST",
         body: body,
         headers: {
@@ -27,8 +27,8 @@ const SongSearchBar = (props) => {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
-      const fetchedSongs = await response.json()
-      setSongs(fetchedSongs)
+      const fetchedTracks = await response.json()
+      setTracks(fetchedTracks)
     } catch (err) {
       console.error(`ERROR: ${err.message}`)
     }
@@ -41,4 +41,4 @@ const SongSearchBar = (props) => {
   )
 }
 
-export default SongSearchBar
+export default TrackSearchBar

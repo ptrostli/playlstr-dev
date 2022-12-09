@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_11_26_212852) do
     t.string "name", null: false
     t.string "artist", null: false
     t.string "album", null: false
-    t.string "length", null: false
+    t.integer "length", null: false
     t.string "spotify_id"
     t.bigint "playlist_id"
     t.datetime "created_at", null: false

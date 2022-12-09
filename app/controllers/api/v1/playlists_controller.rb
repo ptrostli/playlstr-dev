@@ -9,6 +9,7 @@ class Api::V1::PlaylistsController < ApiController
 
   def show 
     playlist = Playlist.find(params[:id])
+    playlist.user = Playlist.find(params[:id]).user
     render json: Playlist.find(params[:id])
   end
 

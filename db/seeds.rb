@@ -39,7 +39,7 @@ track_1 = Track.create(
   name: "10:35",
   artist: "Tiesto ft. Tate McRae",
   album: "10:35",
-  length: "2:52",
+  length: 172000,
   playlist: playlist_1
 )
 
@@ -47,7 +47,7 @@ track_2 = Track.create(
   name: "Drift",
   artist: "Syn Cole",
   album: "Drift",
-  length: "2:45",
+  length: 165000,
   playlist: playlist_1
 )
 
@@ -55,7 +55,7 @@ track_3 = Track.create(
   name: "September",
   artist: "James Arthur",
   album: "September (MENTIS Remix)",
-  length: "3:40",
+  length: 220000,
   playlist: playlist_2
 )
 
@@ -63,7 +63,7 @@ track_4 = Track.create(
   name: "A Moment Apart",
   artist: "ODESZA",
   album: "A Moment Apart",
-  length: "3:54",
+  length: 234000,
   playlist: playlist_2
 )
 
@@ -71,7 +71,7 @@ track_5 = Track.create(
   name: "Sweet Disaster",
   artist: "DREAMERS",
   album: "This Album Does Not Exist",
-  length: "3:25",
+  length: 305000,
   playlist: playlist_3
 )
 
@@ -79,7 +79,7 @@ track_6 = Track.create(
   name: "Will Do",
   artist: "TV On The Radio",
   album: "Nine Types of Light",
-  length: "3:45",
+  length: 325000,
   playlist: playlist_3
 )
 
@@ -87,6 +87,6 @@ track_7 = Track.create(
   name: "Saturday Nights REMIX",
   artist: "Khalid, Kane Brown",
   album: "Saturday Nights REMIX",
-  length: "3:31",
+  length: 221000,
   playlist: playlist_3
 )

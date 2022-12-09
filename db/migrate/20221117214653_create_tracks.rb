@@ -4,7 +4,7 @@ class CreateTracks < ActiveRecord::Migration[5.2]
       t.string :name, null:false 
       t.string :artist, null:false 
       t.string :album, null:false 
-      t.string :length, null:false 
+      t.integer :length, null:false 
       t.string :spotify_id
 
       t.belongs_to :playlist
