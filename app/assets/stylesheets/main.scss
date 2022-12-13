@@ -25,6 +25,7 @@ body {
   font-family: Roboto, sans-serif;
   font-weight: bold;
   text-shadow: 1.5px 1.5px 1.5px rgb(225, 0, 0);
+  justify-content: center;
 }
 
 .home-page {
@@ -84,15 +85,18 @@ ul.user-accounts {
   width: auto;
   align-items: center;
   background-color: whitesmoke;
-  margin: 1rem;
 }
 
 .links {
+  justify-content: center;
   font-weight: bold;
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  border-bottom: 2px solid black;
+  background-image: linear-gradient(to top, rgba(255, 204, 204, 0.506), rgb(255, 171, 171) );
+  width: 100%;
   a {
     background-color: black;
     color: white;
@@ -148,28 +152,46 @@ div.playlist-tile:hover {
 }
 
 .playlist-show-container {
-  border: 1px solid green;
-  margin: 5px;
+  margin: 0px, 5px, 5px, 5px;
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
+  .header {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
 }
 
 .playlist-information {
-  border: 1px solid purple;
   margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .submission-information {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    color: gray;
+  }
+  p {
+    padding: 0px 2rem;
+    margin: 0;
+  }
 }
 
 .edit-or-delete {
-  border: 1px solid orange;
   font-weight: bold;
-  margin-bottom: 5px;
+  padding: 5px;
+  margin: 5px;
+  border-top: 1px solid rgb(178, 178, 178);
+  border-bottom: 1px solid rgb(178, 178, 178);
   input {
     background-color: black;
     color: white;
     border: 1px solid black;
     border-radius: 1rem;
-    margin: 5px;
+    margin: 5px 1rem;
     padding: 3px 8px 4px;
     text-shadow: 1px 1px 1.5px rgb(250, 0, 0);
   }
@@ -182,20 +204,22 @@ div.playlist-tile:hover {
 }
 
 .tracks-container {
-  border: 1px solid blue;
-  margin: 5px;
+  margin: 5px 5%;
+  // border: 1px solid rgb(174, 0, 0);
+  // border-radius: 5px;
 }
 
 .track-tile {
+  margin: auto;
   display: flex;
-  justify-content: baseline;
-  border: 1px solid red;
-  margin: 5px;
+  justify-content: center;
+  color: darkred;
+  // border: 1px solid red;
 }
 
 .search-result-tile {
   display: flex;
-  justify-content: baseline;
+  justify-content:stretch;
   border: 1px solid black;
   margin: 5px;
 }
@@ -203,10 +227,52 @@ div.playlist-tile:hover {
 .playlist-edit-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
+
 .edit-sections {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  background-color: gainsboro;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin: 2%;
+  padding: 1%;
+}
+
+.playlist-form-container {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    align-self: center;
+  }
+}
+
+.new-playlist-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin: 5px 3rem 3rem;
+  padding: 1rem;
+  border: 4px solid rgb(135, 0, 0);
+  border-radius: 5px;
+  h5 {
+    font-style: italic;
+    font-weight: 700;
+  }
+  .create-playlist {
+    height: 4rem;
+    font-size: larger;
+    font-weight: bold;
+    background-color: rgb(151, 0, 0);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  .create-playlist:hover {
+    box-shadow: 2px 1px 1px 0.5px #a4a4a4;
+    color: rgb(0, 0, 0);
+    font-family: Ubuntu, sans-serif;
+    text-shadow: 0.5px 0.5px 0.5px rgba(46, 46, 46, 0.389);
+  }
 }

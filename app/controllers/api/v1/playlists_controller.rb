@@ -4,13 +4,16 @@ class Api::V1::PlaylistsController < ApiController
 
   def index
     playlists = Playlist.all
+
     render json: Playlist.all
   end
 
   def show 
     playlist = Playlist.find(params[:id])
     playlist.user = Playlist.find(params[:id]).user
-    render json: Playlist.find(params[:id])
+    tracks = playlist.tracks
+
+    render json: playlist
   end
 
   def new

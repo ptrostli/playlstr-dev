@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import ErrorList from "./ErrorList";
 
 const NewPlaylistFormContainer = (props) => {
@@ -66,19 +66,24 @@ const NewPlaylistFormContainer = (props) => {
 
 
   return (
-    <form className="new-playlist-form" onSubmit={createNewPlaylist}>
-      <label>
-        <h6>Title:</h6>
-        <input name="title" id="title" type="text" onChange={handleChange} value={newPlaylist.title}/>
-      </label>
+    <div className="playlist-form-container">
+      <div className="links">
+        <Link to="/playlists">All Playlists</Link>
+      </div>
+      <h1 className="header">Create A Playlist</h1>
+      <form className="new-playlist-form" onSubmit={createNewPlaylist}>
+        <label>
+          <h5>Title</h5>
+          <input name="title" id="title" type="text" onChange={handleChange} value={newPlaylist.title}/>
+        </label>
+        <label>
+          <h5>Description</h5>
+          <input className="description-input"name="description" id="description" type="text" value={newPlaylist.description} onChange={handleChange}/>
+        </label>
 
-      <label>
-        <h6>Description:</h6>
-        <input name="description" id="description" type="text" value={newPlaylist.description} onChange={handleChange}/>
-      </label>
-
-      <input type="submit" value="Create New Playlist"/>
-    </form>
+        <input className="create-playlist"type="submit" value="Create New Playlist"/>
+      </form>
+    </div>
   )
 }
 

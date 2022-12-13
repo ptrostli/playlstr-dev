@@ -5,11 +5,12 @@ import TracksListTile from "./TracksListTile";
 import ErrorList from "./ErrorList";
 
 const PlaylistShowContainer = (props) => {
-  const [username, setUsername] = useState("")
-  const [playlist, setPlaylist] = useState({
-    tracks: [],
-  })
   const [redirect, setRedirect] = useState(false)
+  const [username, setUsername] = useState("")
+  const [tracks, setTracks] = useState([])
+  const [playlist, setPlaylist] = useState({
+    tracks: [tracks],
+  })
   const [errors, setErrors] = useState("")
   
   const playlistId = props.match.params.playlistId
@@ -25,6 +26,7 @@ const PlaylistShowContainer = (props) => {
       const fetchedPlaylist = await response.json()
       setPlaylist(fetchedPlaylist)
       setUsername(fetchedPlaylist.user.username)
+      setTracks(fetchedPlaylist.tracks)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
@@ -52,6 +54,13 @@ const PlaylistShowContainer = (props) => {
     }
   }
 
+  const handlePlaylistChange = (event) => {
+    props.setTracks({
+      ...props.tracks,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
   useEffect(() => {
     getPlaylist()
   },[])
@@ -71,33 +80,34 @@ const PlaylistShowContainer = (props) => {
     return <Redirect to ="/playlists"/>
   }
 
-
-
   return (
     <div className="playlist-show-container">
       <div className="links">
         <Link to="/">Return Home</Link>
         <Link to="/playlists">All Playlists</Link>
       </div>
-      <h1 className="header">{playlist.title}</h1>
       <div className="playlist-information">
+        <h1 className="header">{playlist.title}</h1>
         <h5>{playlist.description}</h5>
-        <div className="playlist-timestamps">
+        <div className="submission-information">
           <p>CREATED: {createdAt}</p>
           <p>UPDATED: {updatedAt}</p>
         </div>
-        <p>Submitted by: {username}</p>
-      </div>
-      <div className="edit-or-delete">
+        <p>Submitted by: <strong>{username}</strong></p>
+        <div className="edit-or-delete">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
-          {/* adjust this to display a modified state of components that allows for adding/deleting */}
         </div>
-      <PlaylistEditContainer 
+      </div>
+      {/* <PlaylistEditContainer 
         playlist={playlist}
         playlistId={playlistId}
         setPlaylist={setPlaylist}
         getPlaylist={getPlaylist}
+      /> */}
+      <TracksListTile 
+        playlist={playlist}
+        tracks={tracks}
       />
     </div>
   )
