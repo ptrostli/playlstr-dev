@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
       resources :search, only: [:index]
       resources :playlists, only: [:index, :show, :create, :destroy, :update, :edit] do
-        resources :tracks, only: [:create]
+        resources :tracks, only: [:create, :destroy]
       end
       post '/playlists/search', to: "playlists#search"
     end

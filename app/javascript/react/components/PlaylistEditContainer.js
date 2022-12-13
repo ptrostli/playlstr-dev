@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
+import { Link, Redirect } from "react-router-dom";
 import SearchResultTile from "./SearchResultTile";
 import TrackTile from "./TrackTile";
 
-// export default PlaylistEditContainer = (props) => {
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  // const [tracks, setTracks] = useState([props.playlist.tracks])
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
@@ -40,26 +39,28 @@ const PlaylistEditContainer = (props) => {
     )
   })
 
-  const tracksList = props.playlist.tracks.map((track) => {
-    return (
-      <TrackTile 
-        key={track.id}
-        track={track}
-        playlistId={props.playlistId}
-      />
-    )
-  })
-
-  // ADD USE EFFECT HERE
+  // const tracksList = props.playlist.tracks.map((track) => {
+  //   return (
+  //     <TrackTile 
+  //       key={track.id}
+  //       track={track}
+  //       playlistId={props.playlistId}
+  //     />
+  //   )
+  // })
 
   return (
     <div className="playlist-edit-container">
-      <h3>Add Tracks!</h3>
-      <input onChange={handleSearchChange} value={searchTracks}/>
+      <div className="links">
+        <Link to="/playlists">All Playlists</Link>
+        {/* <Link to="/playlists">Return</Link> */}
+      </div>
       <div className="edit-sections">
+        <h3>Add Tracks!</h3>
+        <input onChange={handleSearchChange} value={searchTracks}/>
         <div className="tracks-list">
           {/* add independent search function */}
-          {tracksList}
+          {/* {tracksList} */}
         </div>
         <div className="search-list">
           {/* add independent search function */}

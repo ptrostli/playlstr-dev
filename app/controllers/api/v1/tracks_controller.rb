@@ -5,7 +5,19 @@ class Api::V1::TracksController < ApiController
     playlist = Playlist.find(params[:playlist_id])
     track = Track.find_or_initialize_by(track_params)
     playlist.tracks << track
-    playlist.save!
+    
+    if playlist.save!
+      render json: playlist
+    else
+      render json: {errors: tracks.errors.full_messages.to_sentence}
+    end
+  end
+
+  def destroy
+    playlist = Playlist.find(params[:playlist_id])
+    track = Track.find_or_initialize_by(track_params)
+    track.destroy(params[:id])
+    # playlist.save!
 
     render json: playlist
   end
