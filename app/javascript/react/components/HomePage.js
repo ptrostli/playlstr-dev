@@ -28,7 +28,7 @@ const HomePage = (props) => {
 
   return (
     <div className="home-page">
-      <h5 className="links"><Link to="/playlists">See All Playlists</Link></h5>
+      <h5 className="links"><Link to="/playlists">All Playlists</Link></h5>
       <h2 className="header">F E A T U R E D</h2>
       <FeaturedPlaylistTile 
         featured={featuredPlaylist}
