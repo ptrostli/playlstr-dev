@@ -15,11 +15,10 @@ class Api::V1::TracksController < ApiController
 
   def destroy
     playlist = Playlist.find(params[:playlist_id])
-    track = Track.find_or_initialize_by(track_params)
-    track.destroy(params[:id])
-    # playlist.save!
+    track = Track.find(params[:id])
+    track.destroy
 
-    render json: playlist
+    render json: { message: "track with id #{params[:id]} deleted." }
   end
 
   private

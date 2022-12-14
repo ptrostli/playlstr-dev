@@ -8,28 +8,6 @@ import UserShowContainer from './UserShowContainer'
 import PlaylistEditContainer from './PlaylistEditContainer'
 
 const App = (props) => {
-  // const [user, setUser] = useState({
-  //   playlists: []
-  // })
-
-  // const getUser = async () => {
-  //   try {
-  //     const response = await fetch('/api/v1/users')
-  //     if (!response.ok) {
-  //       const errorMessage = `${response.status} (${response.statusText})`
-  //       const error = new Error(errorMessage)
-  //       throw(error)
-  //     }
-  //     const fetchedUser = await response.json()
-  //     setCurrentUser(fetchedUser.user)
-  //   } catch(err) {
-  //     console.error(`Error in fetch: ${err.message}`)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getUser()
-  // },[])
 
   return (
     <div>
