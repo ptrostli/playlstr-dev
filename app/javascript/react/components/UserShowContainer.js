@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// REFACTOR TO SEND USER PROPS HERE
 const UserShowContainer = (props) => {
   const [user, setUser] = useState({})
 
