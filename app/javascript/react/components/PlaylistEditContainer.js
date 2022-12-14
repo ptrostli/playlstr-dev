@@ -7,6 +7,8 @@ const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
 
+  const playlistId = props.match.params.playlistId
+
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
     setSearchTracks(searchTracks)
@@ -34,7 +36,7 @@ const PlaylistEditContainer = (props) => {
       <SearchResultTile
         key={searchResult.id}
         track={searchResult}
-        playlistId={props.match.params.playlistId}
+        playlistId={playlistId}
         user={props.user}
         setUser={props.setUser}
       />
@@ -51,11 +53,13 @@ const PlaylistEditContainer = (props) => {
   //   )
   // })
 
+  let returnLink = `/playlists/${playlistId}`
+
   return (
     <div className="playlist-edit-container">
       <div className="links">
         <Link to="/playlists">All Playlists</Link>
-        {/* <Link to="/playlists">Return</Link> */}
+        <Link to={returnLink}>Return</Link>
       </div>
       <div className="edit-sections">
         <h3>Add Tracks!</h3>
