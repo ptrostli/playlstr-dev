@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import getUser from "./Utilities/getUser";
-import PlaylistEditContainer from "./PlaylistEditContainer";
 import TracksListTile from "./TracksListTile";
 
 const PlaylistShowContainer = (props) => {
