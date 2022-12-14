@@ -20,7 +20,7 @@ const PlaylistsIndexContainer = (props) => {
       console.error(`ERROR: ${err.message}`)
     }
   }
-  
+
   useEffect(() => {
     getPlaylists()
   }, [])
