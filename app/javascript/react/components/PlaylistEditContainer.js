@@ -39,15 +39,15 @@ const PlaylistEditContainer = (props) => {
     )
   })
 
-  // const tracksList = props.playlist.tracks.map((track) => {
-  //   return (
-  //     <TrackTile 
-  //       key={track.id}
-  //       track={track}
-  //       playlistId={props.playlistId}
-  //     />
-  //   )
-  // })
+  const tracksList = props.playlist.tracks.map((track) => {
+    return (
+      <TrackTile 
+        key={track.id}
+        track={track}
+        playlistId={props.playlistId}
+      />
+    )
+  })
 
   return (
     <div className="playlist-edit-container">
@@ -60,7 +60,7 @@ const PlaylistEditContainer = (props) => {
         <input onChange={handleSearchChange} value={searchTracks}/>
         <div className="tracks-list">
           {/* add independent search function */}
-          {/* {tracksList} */}
+          {tracksList}
         </div>
         <div className="search-list">
           {/* add independent search function */}

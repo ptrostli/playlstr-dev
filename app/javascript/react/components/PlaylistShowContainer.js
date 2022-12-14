@@ -3,15 +3,16 @@ import { Link, Redirect } from 'react-router-dom';
 import PlaylistEditContainer from "./PlaylistEditContainer";
 import TracksListTile from "./TracksListTile";
 import ErrorList from "./ErrorList";
+import getUser from "./Utilities/getUser";
 
 const PlaylistShowContainer = (props) => {
   const [redirect, setRedirect] = useState(false)
-  const [username, setUsername] = useState("")
+  const [user, setUser] = useState({})
   const [tracks, setTracks] = useState([])
   const [playlist, setPlaylist] = useState({
     tracks: [tracks],
   })
-  const [errors, setErrors] = useState("")
+  // const [errors, setErrors] = useState("")
   
   const playlistId = props.match.params.playlistId
 
@@ -25,7 +26,6 @@ const PlaylistShowContainer = (props) => {
       } 
       const fetchedPlaylist = await response.json()
       setPlaylist(fetchedPlaylist)
-      setUsername(fetchedPlaylist.user.username)
       setTracks(fetchedPlaylist.tracks)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
@@ -61,8 +61,18 @@ const PlaylistShowContainer = (props) => {
     })
   }
 
+  const setCurrentUser = async () => {
+    const user = await getUser()
+    if (user) {
+      setUser(user)
+    }
+  }
+
+  const showLinks = user.id === playlist.user_id
+
   useEffect(() => {
-    getPlaylist()
+    getPlaylist() 
+    setCurrentUser()
   },[])
 
   let createdAt
@@ -93,18 +103,18 @@ const PlaylistShowContainer = (props) => {
           <p>CREATED: {createdAt}</p>
           <p>UPDATED: {updatedAt}</p>
         </div>
-        <p>Submitted by: <strong>{username}</strong></p>
-        <div className="edit-or-delete">
+        <p>Submitted by: <strong>{playlist?.user?.username}</strong></p>
+        {showLinks && <div className="edit-or-delete">
           <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
-        </div>
+        </div>}
       </div>
-      {/* <PlaylistEditContainer 
+      <PlaylistEditContainer 
         playlist={playlist}
         playlistId={playlistId}
         setPlaylist={setPlaylist}
         getPlaylist={getPlaylist}
-      /> */}
+      />
       <TracksListTile 
         playlist={playlist}
         tracks={tracks}

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get '/playlists/:id', to: "static_pages#index"
   get '/playlists/:id/edit', to: "static_pages#index"
   get '/users/:id', to: "static_pages#index"
-
+  
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:show]
+      resources :users, only: [:index, :show]
       resources :search, only: [:index]
       resources :playlists, only: [:index, :show, :create, :destroy, :update, :edit] do
         resources :tracks, only: [:create, :destroy]

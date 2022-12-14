@@ -4,9 +4,8 @@ const TrackTile = (props) => {
   const { track, playlistId } = props
 
   const removeTrack = async (props) => {
-    console.log("This also doesn't do anything... Yet.")
     try {
-      const response = await fetch(`/api/v1/playlist/${playlistId}/tracks/${track.id}`, {
+      const response = await fetch(`/api/v1/playlists/${playlistId}/tracks/${track.id}`, {
         method: "DELETE",
         credentials: "same-origin",
         headers: {
@@ -30,7 +29,7 @@ const TrackTile = (props) => {
   return (
     <div className="track-tile">
       <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>
-      {/* <input type="button" value="-" onClick={removeTrack} /> */}
+      <input type="button" value="-" onClick={removeTrack} />
     </div>
   )
 }
