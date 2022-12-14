@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
+import getUser from "./Utilities/getUser";
 import PlaylistEditContainer from "./PlaylistEditContainer";
 import TracksListTile from "./TracksListTile";
-import ErrorList from "./ErrorList";
-import getUser from "./Utilities/getUser";
 
 const PlaylistShowContainer = (props) => {
   const [redirect, setRedirect] = useState(false)
   const [user, setUser] = useState({})
-  const [tracks, setTracks] = useState([])
   const [playlist, setPlaylist] = useState({
-    tracks: [tracks],
+    tracks: []
   })
-  // const [errors, setErrors] = useState("")
   
   const playlistId = props.match.params.playlistId
 
@@ -26,7 +23,6 @@ const PlaylistShowContainer = (props) => {
       } 
       const fetchedPlaylist = await response.json()
       setPlaylist(fetchedPlaylist)
-      setTracks(fetchedPlaylist.tracks)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
@@ -109,15 +105,18 @@ const PlaylistShowContainer = (props) => {
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
         </div>}
       </div>
-      <PlaylistEditContainer 
+      {/* <PlaylistEditContainer 
         playlist={playlist}
         playlistId={playlistId}
         setPlaylist={setPlaylist}
         getPlaylist={getPlaylist}
-      />
+      /> */}
       <TracksListTile 
         playlist={playlist}
-        tracks={tracks}
+        playlistId={playlistId}
+        tracks={playlist.tracks}
+        user={user}
+        setUser={setUser}
       />
     </div>
   )

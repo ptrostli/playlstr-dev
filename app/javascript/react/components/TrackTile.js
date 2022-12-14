@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import getUser from "./Utilities/getUser";
 
 const TrackTile = (props) => {
-  const { track, playlistId } = props
+  const { track, playlistId, user, setUser } = props
+
+  const setCurrentUser = async () => {
+    const user = await getUser()
+    if (user) {
+      setUser(user)
+    }
+  }
+
+  const showLinks = user.id
+
+  useEffect(() => {
+    setCurrentUser()
+  },[])
 
   const removeTrack = async (props) => {
     try {
@@ -29,7 +43,7 @@ const TrackTile = (props) => {
   return (
     <div className="track-tile">
       <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>
-      <input type="button" value="-" onClick={removeTrack} />
+      {showLinks && <input type="button" value="-" onClick={removeTrack} />}
     </div>
   )
 }

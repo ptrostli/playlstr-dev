@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchResultTile from "./SearchResultTile";
 import TrackTile from "./TrackTile";
 
@@ -34,20 +34,22 @@ const PlaylistEditContainer = (props) => {
       <SearchResultTile
         key={searchResult.id}
         track={searchResult}
-        playlistId={props.playlistId}
+        playlistId={props.match.params.playlistId}
+        user={props.user}
+        setUser={props.setUser}
       />
     )
   })
 
-  const tracksList = props.playlist.tracks.map((track) => {
-    return (
-      <TrackTile 
-        key={track.id}
-        track={track}
-        playlistId={props.playlistId}
-      />
-    )
-  })
+  // const tracksList = props.playlist.tracks.map((track) => {
+  //   return (
+  //     <TrackTile 
+  //       key={track.id}
+  //       track={track}
+  //       playlistId={props.playlistId}
+  //     />
+  //   )
+  // })
 
   return (
     <div className="playlist-edit-container">
@@ -60,7 +62,7 @@ const PlaylistEditContainer = (props) => {
         <input onChange={handleSearchChange} value={searchTracks}/>
         <div className="tracks-list">
           {/* add independent search function */}
-          {tracksList}
+          {/* {tracksList} */}
         </div>
         <div className="search-list">
           {/* add independent search function */}
