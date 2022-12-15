@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import getUser from "./Utilities/getUser";
 import TracksListTile from "./TracksListTile";
+import PlaylistEditContainer from "./PlaylistEditContainer";
+import EditTracksTile from "./EditTracksTile";
 
 const PlaylistShowContainer = (props) => {
   const [redirect, setRedirect] = useState(false)
   const [user, setUser] = useState({})
+  const [tracks, setTracks] = useState([])
   const [playlist, setPlaylist] = useState({
-    tracks: []
+    tracks: [tracks]
   })
   
   const playlistId = props.match.params.playlistId
@@ -22,6 +25,7 @@ const PlaylistShowContainer = (props) => {
       } 
       const fetchedPlaylist = await response.json()
       setPlaylist(fetchedPlaylist)
+      setTracks(...tracks, fetchedPlaylist.tracks)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }
@@ -49,10 +53,10 @@ const PlaylistShowContainer = (props) => {
     }
   }
 
+  // GET THIS SHIT TO WORK YO
   const handlePlaylistChange = (event) => {
-    props.setTracks({
-      ...props.tracks,
-      [event.currentTarget.name]: event.currentTarget.value
+    setTracks({
+      ...tracks, [event.currentTarget.name]: event.currentTarget.value
     })
   }
 
@@ -85,6 +89,15 @@ const PlaylistShowContainer = (props) => {
     return <Redirect to ="/playlists"/>
   }
 
+  const currentList = tracks.map((track) => {
+    return (
+      <EditTracksTile 
+        key={track.id}
+        track={track}
+      />
+    )
+  })
+
   return (
     <div className="playlist-show-container">
       <div className="links">
@@ -110,6 +123,7 @@ const PlaylistShowContainer = (props) => {
         setPlaylist={setPlaylist}
         getPlaylist={getPlaylist}
       /> */}
+      {currentList}
       <TracksListTile 
         playlist={playlist}
         playlistId={playlistId}

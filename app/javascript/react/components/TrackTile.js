@@ -32,6 +32,8 @@ const TrackTile = (props) => {
         const errorMessage = `${response.status} - (${response.statusText})`
         const error = new Error(`${errorMessage}`)
         throw(error)
+      } else {
+          console.log('Track removed!')
       }
     } catch(err) {
       console.error(`ERROR: ${err.message}`)

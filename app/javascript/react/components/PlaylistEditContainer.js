@@ -8,6 +8,7 @@ const PlaylistEditContainer = (props) => {
   const [searchResults, setSearchResults] = useState([])
 
   const playlistId = props.match.params.playlistId
+  console.log(props)
 
   const handleSearchChange = (event) => {
     const searchTracks = event.currentTarget.value
