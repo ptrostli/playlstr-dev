@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchResultTile from "./SearchResultTile";
-import TrackTile from "./TrackTile";
+import EditTrackTile from "./EditTrackTile";
 
 const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")

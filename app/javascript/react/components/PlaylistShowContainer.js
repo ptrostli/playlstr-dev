@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import getUser from "./Utilities/getUser";
 import TracksListTile from "./TracksListTile";
 import PlaylistEditContainer from "./PlaylistEditContainer";
-import EditTracksTile from "./EditTracksTile";
+import EditTracksTile from "./TrackTile";
 
 const PlaylistShowContainer = (props) => {
   const [redirect, setRedirect] = useState(false)

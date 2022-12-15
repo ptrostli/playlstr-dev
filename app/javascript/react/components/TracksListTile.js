@@ -1,5 +1,5 @@
 import React from "react";
-import TrackTile from "./TrackTile";
+import TrackTile from "./EditTrackTile";
 
 const TracksListTile = (props) => {
   const { user, setUser } = props
