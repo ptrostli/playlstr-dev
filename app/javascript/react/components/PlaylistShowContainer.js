@@ -78,11 +78,11 @@ const PlaylistShowContainer = (props) => {
   let updatedAt
   if (playlist.created_at) {
     const created = new Date(playlist.created_at)
-    createdAt = `${created.toLocaleTimeString()} - ${created.toLocaleDateString()}`
+    createdAt = `${created.toLocaleString()}`
   }
   if (playlist.updated_at) {
     const updated = new Date(playlist.updated_at)
-    updatedAt =`${updated.toLocaleTimeString()} - ${updated.toLocaleDateString()}`
+    updatedAt = `${updated.toLocaleString()}`
   }
 
   if (redirect === true) {
