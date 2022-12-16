@@ -21,7 +21,6 @@ const TracksListTile = (props) => {
   return(
     <div className="tracks-container">
       {tracksList}
-      <h1>test</h1>
     </div>
   )
 }
