@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SearchResultTile = (props) => {
-  const { track, playlistId } = props
+  const {track, playlistId} = props
   const [shouldDisplay, setShouldDisplay] = useState(true)
 
   const addTrack = async () => {
