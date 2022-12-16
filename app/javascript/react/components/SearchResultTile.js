@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SearchResultTile = (props) => {
-  const { track, playlistId } = props
+  const {track, playlistId} = props
   const [shouldDisplay, setShouldDisplay] = useState(true)
 
   const addTrack = async () => {
@@ -47,8 +47,8 @@ const SearchResultTile = (props) => {
 
   return (
     <div className="search-result-tile">
-      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
       <input type="button" value="+" onClick={addTrack} />
+      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
       {/* add track.preview_url for samples in future */}
     </div>
   )

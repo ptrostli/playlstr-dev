@@ -12,9 +12,11 @@ const PlaylistEditContainer = (props) => {
   const [searchTracks, setSearchTracks] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [playlist, setPlaylist] = useState(initializedPlaylist)
+  const [tracks, setTracks] = useState([playlist.tracks])
 
   const handleGetPlaylist = async() => {
     const fetchedPlaylist = await playlist.getPlaylist()
+    setTracks(tracks)
     setPlaylist(playlist)
   }
 
@@ -40,7 +42,6 @@ const PlaylistEditContainer = (props) => {
         throw(error)
       } 
       const results = await response.json()
-      console.log(results)
       setSearchResults(results.tracks)
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
@@ -73,19 +74,22 @@ const PlaylistEditContainer = (props) => {
         <Link to="/playlists">All Playlists</Link>
         <Link to={returnLink}>Return</Link>
       </div>
-      <div>
-        <TracksListTile 
-          playlist={playlist}
-          playlistId={playlistId}
-          tracks={playlist.tracks}
-          user={user}
-          setUser={setUser}
-          isEditable={isEditable}
-        />
-      </div>
       <div className="edit-sections">
-        <h3>Add Tracks!</h3>
-        <input onChange={handleSearchChange} value={searchTracks}/>
+        <h3>Remove Tracks</h3>
+        <div className="current-tracks">
+          <TracksListTile
+            playlist={playlist}
+            playlistId={playlistId}
+            tracks={playlist.tracks}
+            user={user}
+            setUser={setUser}
+            isEditable={isEditable}
+          />
+        </div>
+        <div className="add-tracks">
+          <h3>Add Tracks</h3>
+          <input onChange={handleSearchChange} value={searchTracks} placeholder="Search tracks to add!"/>
+        </div>
         <div className="search-list">
           {searchedTracksList}
         </div>

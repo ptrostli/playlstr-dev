@@ -21,8 +21,8 @@ const TrackTile = (props) => {
 
   return (
     <div className="track-tile">
-      {<p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>}
       {isEditable &&  <input type="button" value="-" onClick={handleRemoveTrack} />}
+      {<p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>}
     </div>
   )
 }
