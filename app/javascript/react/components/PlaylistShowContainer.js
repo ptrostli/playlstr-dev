@@ -1,59 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import getUser from "./Utilities/getUser";
+import Playlist from "./Models/playlist";
 import TracksListTile from "./TracksListTile";
 
 const PlaylistShowContainer = (props) => {
+  const playlistId = props.match.params.playlistId
+  const initializedPlaylist = new Playlist(playlistId)
   const [redirect, setRedirect] = useState(false)
   const [user, setUser] = useState({})
-  const [playlist, setPlaylist] = useState({
-    tracks: []
-  })
-  
-  const playlistId = props.match.params.playlistId
+  const [playlist, setPlaylist] = useState(initializedPlaylist)
 
-  const getPlaylist = async() => {
-    try {
-      const response = await fetch(`/api/v1/playlists/${playlistId}`)
-      if (!response.ok) {
-        const errorMessage = `${response.status}  (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      } 
-      const fetchedPlaylist = await response.json()
-      setPlaylist(fetchedPlaylist)
-    } catch(err) {
-      console.error(`ERROR: ${err.message}`)
-    }
+  const handleGetPlaylist = async() => {
+    const fetchedPlaylist = await playlist.getPlaylist()
+    setPlaylist(fetchedPlaylist)
   }
 
-  const deletePlaylist = async() => {
-    try {
-      const response = await fetch(`/api/v1/playlists/${playlistId}`, {
-        credentials: "same-origin",
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: null
-      })
-      if (!response.ok) {
-        const errorMessage = `${response.status} - (${response.statusText})`
-        const error = new Error(`${errorMessage}`)
-        throw(error)
-      }
+  const handleDeletePlaylist = async() => {
+    const didDelete = playlist.deletePlaylist()
+    if (didDelete) {
       setRedirect(true)
-    } catch(err) {
-      console.error(`ERROR: ${err.message}`)
     }
-  }
-
-  const handlePlaylistChange = (event) => {
-    props.setTracks({
-      ...props.tracks,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
   }
 
   const setCurrentUser = async () => {
@@ -66,7 +33,7 @@ const PlaylistShowContainer = (props) => {
   const showLinks = user.id === playlist.user_id
 
   useEffect(() => {
-    getPlaylist() 
+    handleGetPlaylist() 
     setCurrentUser()
   },[])
 
@@ -74,11 +41,11 @@ const PlaylistShowContainer = (props) => {
   let updatedAt
   if (playlist.created_at) {
     const created = new Date(playlist.created_at)
-    createdAt = `${created.toLocaleTimeString()} - ${created.toLocaleDateString()}`
+    createdAt = `${created.toLocaleString()}`
   }
   if (playlist.updated_at) {
     const updated = new Date(playlist.updated_at)
-    updatedAt =`${updated.toLocaleTimeString()} - ${updated.toLocaleDateString()}`
+    updatedAt = `${updated.toLocaleString()}`
   }
 
   if (redirect === true) {
@@ -100,16 +67,10 @@ const PlaylistShowContainer = (props) => {
         </div>
         <p>Submitted by: <strong>{playlist?.user?.username}</strong></p>
         {showLinks && <div className="edit-or-delete">
-          <input type="button" value="Delete Playlist" onClick={deletePlaylist} />
+          <input type="button" value="Delete Playlist" onClick={handleDeletePlaylist} />
           <Link to={`/playlists/${playlistId}/edit`}><input type="button" value="Edit Playlist"/></Link>
         </div>}
       </div>
-      {/* <PlaylistEditContainer 
-        playlist={playlist}
-        playlistId={playlistId}
-        setPlaylist={setPlaylist}
-        getPlaylist={getPlaylist}
-      /> */}
       <TracksListTile 
         playlist={playlist}
         playlistId={playlistId}

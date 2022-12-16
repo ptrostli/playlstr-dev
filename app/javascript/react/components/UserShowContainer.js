@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from "react";
+import getUser from "./Utilities/getUser";
 
 const UserShowContainer = (props) => {
   const [user, setUser] = useState({})
 
-  const getUser = async () => {
-    try {
-      const userId = props.match.params.userId
-      const response = await fetch(`/api/v1/users/${userId}`)
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      }
-      const fetchedUser = await response.json()
-      setUser(fetchedUser)
-    } catch(err) {
-      console.error(`ERROR: ${err.message}`)
+  const setCurrentUser = async () => {
+    const user = await getUser()
+    if (user) {
+      setUser(user)
     }
   }
 
   useEffect(() => {
-    getUser()
+    setCurrentUser()
   }, [])
 
   let joinDate
   if (user.created_at) {
     const date = new Date(user.created_at)
-    joinDate = date.toLocaleDateTimeString()
+    joinDate = date.toLocaleString()
   }
 
   return (

@@ -1,49 +1,28 @@
-import React, { useEffect } from "react";
-import getUser from "./Utilities/getUser";
+import React, {useState} from "react";
 
 const TrackTile = (props) => {
-  const { track, playlistId, user, setUser } = props
+  const { isEditable, playlist, track } = props
+  const [shouldShow, setShouldShow] = useState(true)
 
-  const setCurrentUser = async () => {
-    const user = await getUser()
-    if (user) {
-      setUser(user)
-    }
-  }
-
-  const showLinks = user.id
-
-  useEffect(() => {
-    setCurrentUser()
-  },[])
-
-  const removeTrack = async (props) => {
-    try {
-      const response = await fetch(`/api/v1/playlists/${playlistId}/tracks/${track.id}`, {
-        method: "DELETE",
-        credentials: "same-origin",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: null
-      })
-      if (!response.ok) {
-        const errorMessage = `${response.status} - (${response.statusText})`
-        const error = new Error(`${errorMessage}`)
-        throw(error)
-      }
-    } catch(err) {
-      console.error(`ERROR: ${err.message}`)
+  const handleRemoveTrack = async () => {
+    console.log(playlist)
+    console.log(typeof playlist)
+    const didRemove = await playlist.removeTrack(track.id)
+    if (didRemove) {
+      setShouldShow(false)
     }
   }
 
   const time = new Date(track.length);
 
+  if (!shouldShow) {
+    return null
+  }
+
   return (
     <div className="track-tile">
-      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>
-      {showLinks && <input type="button" value="-" onClick={removeTrack} />}
+      {<p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>}
+      {isEditable &&  <input type="button" value="-" onClick={handleRemoveTrack} />}
     </div>
   )
 }

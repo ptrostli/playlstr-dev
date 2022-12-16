@@ -25,7 +25,6 @@ const NewPlaylistFormContainer = (props) => {
     setErrors(showErrors)
     return _.isEmpty()
   }
-  // Don't forget to implement.
   
   const handleChange = (event) => {
     setNewPlaylist({
