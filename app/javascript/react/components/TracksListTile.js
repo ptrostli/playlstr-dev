@@ -1,17 +1,19 @@
 import React from "react";
-import TrackTile from "./EditTrackTile";
+import TrackTile from "./TrackTile";
 
 const TracksListTile = (props) => {
-  const { user, setUser } = props
+  const { isEditable, playlistId, playlist, user, setUser } = props
 
-  const tracksList = props.playlist.tracks.map((track) => {
+  const tracksList = playlist.tracks.map((track) => {
     return (
       <TrackTile 
         key={track.id}
         track={track}
+        playlist={playlist}
         user={user}
         setUser={setUser}
-        playlistId={props.playlistId}
+        playlistId={playlistId}
+        isEditable={isEditable}
       />
     )
   })
@@ -19,6 +21,7 @@ const TracksListTile = (props) => {
   return(
     <div className="tracks-container">
       {tracksList}
+      <h1>test</h1>
     </div>
   )
 }

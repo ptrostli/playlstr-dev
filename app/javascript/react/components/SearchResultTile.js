@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchResultTile = (props) => {
   const { track, playlistId } = props
+  const [shouldDisplay, setShouldDisplay] = useState(true)
 
   const addTrack = async () => {
     try {
@@ -28,6 +29,7 @@ const SearchResultTile = (props) => {
         const error = new Error(errorMessage)
         throw(error)
       }
+      setShouldDisplay(false)
       const fetchedPlaylist = await response.json()
       if (fetchedPlaylist.id) {
         console.log('Track added!')
@@ -39,6 +41,10 @@ const SearchResultTile = (props) => {
 
   const time = new Date(track.duration_ms);
   
+  if (shouldDisplay === false) {
+    return null
+  }
+
   return (
     <div className="search-result-tile">
       <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
