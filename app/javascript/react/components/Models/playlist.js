@@ -46,7 +46,7 @@ export default class Playlist {
       } 
       const fetchedPlaylist = await response.json()
       this.setAttributes(fetchedPlaylist)
-      return true
+      return fetchedPlaylist
     } catch(err) {
       console.error(`ERROR: ${err.message}`)
     }

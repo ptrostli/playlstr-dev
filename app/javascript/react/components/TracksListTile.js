@@ -2,9 +2,9 @@ import React from "react";
 import TrackTile from "./TrackTile";
 
 const TracksListTile = (props) => {
-  const { isEditable, playlistId, playlist, user, setUser } = props
+  const { isEditable, playlistId, tracks, playlist, user, setUser } = props
 
-  const tracksList = playlist.tracks.map((track) => {
+  const tracksList = tracks.map((track) => {
     return (
       <TrackTile 
         key={track.id}
