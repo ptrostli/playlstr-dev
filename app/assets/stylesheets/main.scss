@@ -283,6 +283,9 @@ div.playlist-tile:hover {
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
+  input {
+    min-width: 100%;
+  }
 }
 
 .search-result-tile {
