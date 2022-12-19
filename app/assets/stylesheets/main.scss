@@ -27,6 +27,7 @@ body {
   text-shadow: 1.5px 1.5px 1.5px rgb(225, 0, 0);
   justify-content: center;
 }
+
 .top-bar, h2 {
   align-self: center;
 }
@@ -178,7 +179,6 @@ ul.user-accounts {
   }
 }
 
-// to be redesigned
 .playlist-tile {
   background-color: rgb(241, 238, 238);
   border: 1.5px solid rgba(0, 0, 0, 0.408);
@@ -199,7 +199,6 @@ ul.user-accounts {
   }
 }
 
-// to be redesigned
 div.playlist-tile:hover {
   background-image: linear-gradient(to top left, rgba(255,0,0,0), rgb(249, 249, 249) );
   font-weight: bold; 
@@ -221,6 +220,11 @@ div.playlist-tile:hover {
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  .track-tile{
+    justify-content: center;
+    align-self: center;
+  }
   .header {
     display: flex;
     justify-content: center;
