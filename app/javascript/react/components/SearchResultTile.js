@@ -12,7 +12,10 @@ const SearchResultTile = (props) => {
           album: track.album.name,
           length: track.duration_ms,
           artist: track.artists[0].name,
-          spotify_id: track.id
+          spotify_id: track.id,
+          external_url: track.external_urls.spotify,
+          preview_url: track.preview_url,
+          image: track.album.images[2].url
         },
       }
       const response = await fetch(`/api/v1/playlists/${playlistId}/tracks`, {
