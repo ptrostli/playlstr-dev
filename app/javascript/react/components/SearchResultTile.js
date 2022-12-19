@@ -15,6 +15,7 @@ const SearchResultTile = (props) => {
           spotify_id: track.id,
           external_url: track.external_urls.spotify,
           preview_url: track.preview_url,
+          artist_url: track.artists[0].external_urls.spotify,
           image: track.album.images[2].url
         },
       }

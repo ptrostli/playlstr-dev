@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_12_19_233402) do
     t.datetime "updated_at", null: false
     t.string "preview_url"
     t.string "external_url"
+    t.string "artist_url"
     t.string "image"
     t.index ["playlist_id"], name: "index_tracks_on_playlist_id"
   end
