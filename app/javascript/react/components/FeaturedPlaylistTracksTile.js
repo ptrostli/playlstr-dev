@@ -6,8 +6,8 @@ const FeaturedPlaylistTracksTile = (props) => {
   const time = new Date(track.length);
 
   return (
-    <ul>
-      <li>{`${time.getMinutes()}:${time.getSeconds()}`} || {track.name} - {track.artist}</li>
+    <ul className="featured-tracks-tile">
+      <li>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</li>
     </ul>
   )
 }
