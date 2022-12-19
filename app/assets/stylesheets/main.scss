@@ -270,9 +270,8 @@ div.playlist-tile:hover {
 
 .track-tile {
   display: flex;
-  justify-content: center;
-  margin: 5px;
-  padding: 0px 5px;
+  justify-content: stretch;
+  margin: auto;
   p {
     border-bottom: 1px solid rgb(155, 0, 0);
     margin: 0;
@@ -281,7 +280,7 @@ div.playlist-tile:hover {
 
 .add-tracks {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: stretch;
   align-items: center;
 }
@@ -289,8 +288,12 @@ div.playlist-tile:hover {
 .search-result-tile {
   display: flex;
   justify-content: stretch;
-  border: 1px solid black;
-  margin: 5px;
+  align-self: center;
+  margin: auto;
+  p {
+    border-bottom: 1px solid rgb(165, 0, 154);
+    margin: 0;
+  }
 }
 
 .playlist-edit-container {
@@ -308,6 +311,9 @@ div.playlist-tile:hover {
   border-radius: 5px;
   margin: 2%;
   padding: 1%;
+  h3 {
+    align-self: center;
+  }
 }
 
 .playlist-form-container {
