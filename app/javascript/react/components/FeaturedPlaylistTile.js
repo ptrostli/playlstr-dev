@@ -16,10 +16,12 @@ const FeaturedPlaylistTile = (props) => {
 
   return (
     <div className="featured-playlist-tile">
-      <Link to={`/playlists/${featured.id}`}>
-        <h2>{featured.title}</h2>
-      </Link>
-      <p>{featured.description}</p>
+      <div className="featured-playlist-info">
+        <Link to={`/playlists/${featured.id}`}>
+          <h3>{featured.title}</h3>
+        </Link>
+        <p>{featured.description}</p>
+      </div>
       {featuredTracksList}
     </div>
   )

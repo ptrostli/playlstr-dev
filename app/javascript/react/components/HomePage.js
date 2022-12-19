@@ -29,6 +29,10 @@ const HomePage = (props) => {
   return (
     <div className="home-page">
       <h5 className="links"><Link to="/playlists">All Playlists</Link></h5>
+      <div className="site-information">
+        <h5 className="slogan">Bringing back the days of sharing mix tapes!</h5>
+        <h5>Create playlists to share with the world.</h5>
+      </div>
       <h2 className="header">F E A T U R E D</h2>
       <FeaturedPlaylistTile 
         featured={featuredPlaylist}
