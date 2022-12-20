@@ -7,7 +7,7 @@ const FeaturedPlaylistTracksTile = (props) => {
 
   return (
     <ul className="featured-tracks-tile">
-      <li>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</li>
+      <a href={`${track.external_url}`}><li>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</li></a>
     </ul>
   )
 }

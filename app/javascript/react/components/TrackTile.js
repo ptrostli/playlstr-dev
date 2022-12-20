@@ -5,8 +5,6 @@ const TrackTile = (props) => {
   const [shouldShow, setShouldShow] = useState(true)
 
   const handleRemoveTrack = async () => {
-    console.log(playlist)
-    console.log(typeof playlist)
     const didRemove = await playlist.removeTrack(track.id)
     if (didRemove) {
       setShouldShow(false)
@@ -22,7 +20,7 @@ const TrackTile = (props) => {
   return (
     <div className="track-tile">
       {isEditable &&  <input type="button" value="-" onClick={handleRemoveTrack} />}
-      {<p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p>}
+      <a href={`${track.external_url}`}><p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artist}</p></a>
     </div>
   )
 }
