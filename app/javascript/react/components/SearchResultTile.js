@@ -12,7 +12,11 @@ const SearchResultTile = (props) => {
           album: track.album.name,
           length: track.duration_ms,
           artist: track.artists[0].name,
-          spotify_id: track.id
+          spotify_id: track.id,
+          external_url: track.external_urls.spotify,
+          preview_url: track.preview_url,
+          artist_url: track.artists[0].external_urls.spotify,
+          image: track.album.images[2].url
         },
       }
       const response = await fetch(`/api/v1/playlists/${playlistId}/tracks`, {
@@ -47,9 +51,8 @@ const SearchResultTile = (props) => {
 
   return (
     <div className="search-result-tile">
-      <input type="button" value="+" onClick={addTrack} />
-      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
-      {/* add track.preview_url for samples in future */}
+      <input type="button" value="+" onClick={addTrack}/>
+      <a href={`${track.external_urls.spotify}`}><p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p></a>
     </div>
   )
 }
