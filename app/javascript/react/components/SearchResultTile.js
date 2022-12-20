@@ -51,9 +51,8 @@ const SearchResultTile = (props) => {
 
   return (
     <div className="search-result-tile">
-      <input type="button" value="+" onClick={addTrack} />
-      <p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p>
-      {/* add track.preview_url for samples in future */}
+      <input type="button" value="+" onClick={addTrack}/>
+      <a href={`${track.external_urls.spotify}`}><p>{`${time.getMinutes()}:${time.getSeconds()}`} | {track.name} - {track.artists[0].name}</p></a>
     </div>
   )
 }
