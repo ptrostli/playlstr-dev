@@ -37,6 +37,7 @@ const SearchResultTile = (props) => {
       const fetchedPlaylist = await response.json()
       if (fetchedPlaylist.id) {
         console.log('Track added!')
+        return true
       }
     } catch(err) {
       console.error(`ERROR: ${err.message}`)

@@ -6,7 +6,7 @@ user_1 = User.create(
   username: "demo",
   email: "demo@email.com",
   password: "password",
-  role: "user"
+  role: "member"
 )
 
 user_2 = User.create(
